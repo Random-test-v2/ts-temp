@@ -2,12 +2,12 @@
  * FlexPrice Customer Portal - Dashboard API (custom)
  *
  * Merged from api/custom/typescript/. Uses the Speakeasy-generated
- * Flexprice SDK (customers, subscriptions, invoices, wallets, entitlements, features).
+ * FlexPrice SDK (customers, subscriptions, invoices, wallets, entitlements, features).
  */
 
 import type { SDKOptions } from "../lib/config.js";
-import type * as models from "../models/index.js";
-import { Flexprice } from "./sdk.js";
+import type * as shared from "./models/shared/index.js";
+import { FlexPrice } from "./sdk.js";
 
 export type DashboardOptions = {
   subscriptionLimit?: number;
@@ -25,13 +25,13 @@ export type DashboardOptions = {
 };
 
 export interface CustomerDashboardData {
-  customer?: models.DtoCustomerResponse;
-  usage?: models.DtoCustomerUsageSummaryResponse;
-  entitlements?: models.DtoCustomerEntitlementsResponse;
-  walletBalance?: models.DtoWalletResponse;
-  activeSubscriptions?: models.DtoSubscriptionResponse[];
-  invoices?: models.DtoInvoiceResponse[];
-  summary?: models.DtoCustomerMultiCurrencyInvoiceSummary;
+  customer?: shared.DtoCustomerResponse;
+  usage?: shared.DtoCustomerUsageSummaryResponse;
+  entitlements?: shared.DtoCustomerEntitlementsResponse;
+  walletBalance?: shared.DtoWalletResponse;
+  activeSubscriptions?: shared.DtoSubscriptionResponse[];
+  invoices?: shared.DtoInvoiceResponse[];
+  summary?: shared.DtoCustomerMultiCurrencyInvoiceSummary;
   metadata: {
     fetchedAt: string;
     customerId: string;
@@ -43,13 +43,13 @@ export interface CustomerDashboardData {
 }
 
 /**
- * Customer Portal – single entry point for customer dashboard data using the Flexprice SDK.
+ * Customer Portal – single entry point for customer dashboard data using the FlexPrice SDK.
  */
 export class CustomerPortal {
-  private sdk: Flexprice;
+  private sdk: FlexPrice;
 
   constructor(options: SDKOptions) {
-    this.sdk = new Flexprice(options);
+    this.sdk = new FlexPrice(options);
   }
 
   /**
@@ -90,17 +90,19 @@ export class CustomerPortal {
       this.sdk.customers.getCustomerByExternalId({ externalId: customerExternalId }),
     );
 
-    if (!customer?.id) {
+    const customerData =
+      customer && "id" in customer && customer.id ? customer : undefined;
+    if (!customerData?.id) {
       return {
         metadata: {
           fetchedAt: now,
           customerId: customerExternalId,
-          errors: errors.length ? errors : [`Customer not found: ${customerExternalId}`],
+          ...(errors.length ? { errors } : { errors: [`Customer not found: ${customerExternalId}`] }),
         },
       };
     }
 
-    const customerId = customer.id;
+    const customerId = customerData.id as string;
 
     const [usage, entitlements, walletBalance, subsResp, invoicesResp, summary] = await Promise.all([
       opts.includeUsage
@@ -145,24 +147,29 @@ export class CustomerPortal {
         : undefined,
     ]);
 
-    const activeSubscriptions = subsResp?.items ?? [];
-    const invoices = invoicesResp?.items ?? [];
+    const activeSubscriptions =
+      subsResp && "items" in subsResp ? subsResp.items ?? [] : [];
+    const invoices =
+      invoicesResp && "items" in invoicesResp ? invoicesResp.items ?? [] : [];
+
+    const isSuccess = <T>(r: T): r is Exclude<T, { error?: unknown }> =>
+      !r || !("error" in (r as object));
 
     return {
-      ...(opts.includeCustomer && customer ? { customer } : {}),
-      ...(usage ? { usage } : {}),
-      ...(entitlements ? { entitlements } : {}),
-      ...(walletBalance ? { walletBalance } : {}),
-      activeSubscriptions: activeSubscriptions.length ? activeSubscriptions : undefined,
-      invoices: invoices.length ? invoices : undefined,
-      ...(summary ? { summary } : {}),
+      ...(opts.includeCustomer && customerData ? { customer: customerData } : {}),
+      ...(usage && isSuccess(usage) ? { usage } : {}),
+      ...(entitlements && isSuccess(entitlements) ? { entitlements } : {}),
+      ...(walletBalance && isSuccess(walletBalance) ? { walletBalance } : {}),
+      ...(activeSubscriptions.length ? { activeSubscriptions } : {}),
+      ...(invoices.length ? { invoices } : {}),
+      ...(summary && isSuccess(summary) ? { summary } : {}),
       metadata: {
         fetchedAt: now,
         customerId: customerExternalId,
         totalSubscriptions: activeSubscriptions.length,
         totalInvoices: invoices.length,
-        errors: errors.length ? errors : undefined,
-        warnings: warnings.length ? warnings : undefined,
+        ...(errors.length ? { errors } : {}),
+        ...(warnings.length ? { warnings } : {}),
       },
     };
   }
