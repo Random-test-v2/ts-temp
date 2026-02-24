@@ -20,15 +20,15 @@ Use as the Chargebee webhook endpoint URL. Receives payment and subscription eve
 
 <!-- UsageSnippet language="typescript" operationID="handleChargebeeWebhook" method="post" path="/webhooks/chargebee/{tenant_id}/{environment_id}" -->
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.webhooks.handleChargebeeWebhook({
+  const result = await flexPrice.webhooks.handleChargebeeWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -44,18 +44,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { SDKCore } from "openapi/core.js";
-import { webhooksHandleChargebeeWebhook } from "openapi/funcs/webhooks-handle-chargebee-webhook.js";
+import { FlexPriceCore } from "flexprice-ts/core.js";
+import { webhooksHandleChargebeeWebhook } from "flexprice-ts/funcs/webhooksHandleChargebeeWebhook.js";
 
-// Use `SDKCore` for best tree-shaking performance.
+// Use `FlexPriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const sdk = new SDKCore({
+const flexPrice = new FlexPriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleChargebeeWebhook(sdk, {
+  const res = await webhooksHandleChargebeeWebhook(flexPrice, {
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -74,20 +74,20 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.HandleChargebeeWebhookRequest](../../models/operations/handle-chargebee-webhook-request.md)                                                                        | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.HandleChargebeeWebhookRequest](../../sdk/models/operations/handlechargebeewebhookrequest.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[{ [k: string]: any }](../../models/.md)\>**
+**Promise\<[operations.HandleChargebeeWebhookResponse](../../sdk/models/operations/handlechargebeewebhookresponse.md)\>**
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## handleHubspotWebhook
 
@@ -97,15 +97,15 @@ Use as the HubSpot webhook endpoint URL. Receives deal and customer events (e.g.
 
 <!-- UsageSnippet language="typescript" operationID="handleHubspotWebhook" method="post" path="/webhooks/hubspot/{tenant_id}/{environment_id}" -->
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.webhooks.handleHubspotWebhook({
+  const result = await flexPrice.webhooks.handleHubspotWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
     xHubSpotSignatureV3: "<value>",
@@ -122,18 +122,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { SDKCore } from "openapi/core.js";
-import { webhooksHandleHubspotWebhook } from "openapi/funcs/webhooks-handle-hubspot-webhook.js";
+import { FlexPriceCore } from "flexprice-ts/core.js";
+import { webhooksHandleHubspotWebhook } from "flexprice-ts/funcs/webhooksHandleHubspotWebhook.js";
 
-// Use `SDKCore` for best tree-shaking performance.
+// Use `FlexPriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const sdk = new SDKCore({
+const flexPrice = new FlexPriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleHubspotWebhook(sdk, {
+  const res = await webhooksHandleHubspotWebhook(flexPrice, {
     tenantId: "<id>",
     environmentId: "<id>",
     xHubSpotSignatureV3: "<value>",
@@ -153,7 +153,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.HandleHubspotWebhookRequest](../../models/operations/handle-hubspot-webhook-request.md)                                                                            | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.HandleHubspotWebhookRequest](../../sdk/models/operations/handlehubspotwebhookrequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -164,9 +164,9 @@ run();
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## handleMoyasarWebhook
 
@@ -176,15 +176,15 @@ Use as the Moyasar webhook endpoint URL. Receives payment events from Moyasar to
 
 <!-- UsageSnippet language="typescript" operationID="handleMoyasarWebhook" method="post" path="/webhooks/moyasar/{tenant_id}/{environment_id}" -->
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.webhooks.handleMoyasarWebhook({
+  const result = await flexPrice.webhooks.handleMoyasarWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -200,18 +200,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { SDKCore } from "openapi/core.js";
-import { webhooksHandleMoyasarWebhook } from "openapi/funcs/webhooks-handle-moyasar-webhook.js";
+import { FlexPriceCore } from "flexprice-ts/core.js";
+import { webhooksHandleMoyasarWebhook } from "flexprice-ts/funcs/webhooksHandleMoyasarWebhook.js";
 
-// Use `SDKCore` for best tree-shaking performance.
+// Use `FlexPriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const sdk = new SDKCore({
+const flexPrice = new FlexPriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleMoyasarWebhook(sdk, {
+  const res = await webhooksHandleMoyasarWebhook(flexPrice, {
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -230,7 +230,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.HandleMoyasarWebhookRequest](../../models/operations/handle-moyasar-webhook-request.md)                                                                            | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.HandleMoyasarWebhookRequest](../../sdk/models/operations/handlemoyasarwebhookrequest.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -241,9 +241,9 @@ run();
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## handleNomodWebhook
 
@@ -253,15 +253,15 @@ Use as the Nomod webhook endpoint URL. Receives payment and invoice events from 
 
 <!-- UsageSnippet language="typescript" operationID="handleNomodWebhook" method="post" path="/webhooks/nomod/{tenant_id}/{environment_id}" -->
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.webhooks.handleNomodWebhook({
+  const result = await flexPrice.webhooks.handleNomodWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -277,18 +277,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { SDKCore } from "openapi/core.js";
-import { webhooksHandleNomodWebhook } from "openapi/funcs/webhooks-handle-nomod-webhook.js";
+import { FlexPriceCore } from "flexprice-ts/core.js";
+import { webhooksHandleNomodWebhook } from "flexprice-ts/funcs/webhooksHandleNomodWebhook.js";
 
-// Use `SDKCore` for best tree-shaking performance.
+// Use `FlexPriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const sdk = new SDKCore({
+const flexPrice = new FlexPriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleNomodWebhook(sdk, {
+  const res = await webhooksHandleNomodWebhook(flexPrice, {
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -307,20 +307,20 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.HandleNomodWebhookRequest](../../models/operations/handle-nomod-webhook-request.md)                                                                                | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.HandleNomodWebhookRequest](../../sdk/models/operations/handlenomodwebhookrequest.md)                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[{ [k: string]: any }](../../models/.md)\>**
+**Promise\<[operations.HandleNomodWebhookResponse](../../sdk/models/operations/handlenomodwebhookresponse.md)\>**
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## handleQuickbooksWebhook
 
@@ -330,15 +330,15 @@ Use as the QuickBooks webhook endpoint URL. Receives payment events from QuickBo
 
 <!-- UsageSnippet language="typescript" operationID="handleQuickbooksWebhook" method="post" path="/webhooks/quickbooks/{tenant_id}/{environment_id}" -->
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.webhooks.handleQuickbooksWebhook({
+  const result = await flexPrice.webhooks.handleQuickbooksWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -354,18 +354,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { SDKCore } from "openapi/core.js";
-import { webhooksHandleQuickbooksWebhook } from "openapi/funcs/webhooks-handle-quickbooks-webhook.js";
+import { FlexPriceCore } from "flexprice-ts/core.js";
+import { webhooksHandleQuickbooksWebhook } from "flexprice-ts/funcs/webhooksHandleQuickbooksWebhook.js";
 
-// Use `SDKCore` for best tree-shaking performance.
+// Use `FlexPriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const sdk = new SDKCore({
+const flexPrice = new FlexPriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleQuickbooksWebhook(sdk, {
+  const res = await webhooksHandleQuickbooksWebhook(flexPrice, {
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -384,20 +384,20 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.HandleQuickbooksWebhookRequest](../../models/operations/handle-quickbooks-webhook-request.md)                                                                      | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.HandleQuickbooksWebhookRequest](../../sdk/models/operations/handlequickbookswebhookrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[{ [k: string]: any }](../../models/.md)\>**
+**Promise\<[operations.HandleQuickbooksWebhookResponse](../../sdk/models/operations/handlequickbookswebhookresponse.md)\>**
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## handleRazorpayWebhook
 
@@ -407,15 +407,15 @@ Use as the Razorpay webhook endpoint URL. Receives payment capture and failure e
 
 <!-- UsageSnippet language="typescript" operationID="handleRazorpayWebhook" method="post" path="/webhooks/razorpay/{tenant_id}/{environment_id}" -->
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.webhooks.handleRazorpayWebhook({
+  const result = await flexPrice.webhooks.handleRazorpayWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
     xRazorpaySignature: "<value>",
@@ -432,18 +432,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { SDKCore } from "openapi/core.js";
-import { webhooksHandleRazorpayWebhook } from "openapi/funcs/webhooks-handle-razorpay-webhook.js";
+import { FlexPriceCore } from "flexprice-ts/core.js";
+import { webhooksHandleRazorpayWebhook } from "flexprice-ts/funcs/webhooksHandleRazorpayWebhook.js";
 
-// Use `SDKCore` for best tree-shaking performance.
+// Use `FlexPriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const sdk = new SDKCore({
+const flexPrice = new FlexPriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleRazorpayWebhook(sdk, {
+  const res = await webhooksHandleRazorpayWebhook(flexPrice, {
     tenantId: "<id>",
     environmentId: "<id>",
     xRazorpaySignature: "<value>",
@@ -463,7 +463,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.HandleRazorpayWebhookRequest](../../models/operations/handle-razorpay-webhook-request.md)                                                                          | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.HandleRazorpayWebhookRequest](../../sdk/models/operations/handlerazorpaywebhookrequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -474,9 +474,9 @@ run();
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## handleStripeWebhook
 
@@ -486,15 +486,15 @@ Use as the Stripe webhook endpoint URL. Receives payment and customer events fro
 
 <!-- UsageSnippet language="typescript" operationID="handleStripeWebhook" method="post" path="/webhooks/stripe/{tenant_id}/{environment_id}" -->
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.webhooks.handleStripeWebhook({
+  const result = await flexPrice.webhooks.handleStripeWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
     stripeSignature: "<value>",
@@ -511,18 +511,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { SDKCore } from "openapi/core.js";
-import { webhooksHandleStripeWebhook } from "openapi/funcs/webhooks-handle-stripe-webhook.js";
+import { FlexPriceCore } from "flexprice-ts/core.js";
+import { webhooksHandleStripeWebhook } from "flexprice-ts/funcs/webhooksHandleStripeWebhook.js";
 
-// Use `SDKCore` for best tree-shaking performance.
+// Use `FlexPriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const sdk = new SDKCore({
+const flexPrice = new FlexPriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleStripeWebhook(sdk, {
+  const res = await webhooksHandleStripeWebhook(flexPrice, {
     tenantId: "<id>",
     environmentId: "<id>",
     stripeSignature: "<value>",
@@ -542,17 +542,17 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.HandleStripeWebhookRequest](../../models/operations/handle-stripe-webhook-request.md)                                                                              | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.HandleStripeWebhookRequest](../../sdk/models/operations/handlestripewebhookrequest.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[{ [k: string]: any }](../../models/.md)\>**
+**Promise\<[operations.HandleStripeWebhookResponse](../../sdk/models/operations/handlestripewebhookresponse.md)\>**
 
 ### Errors
 
-| Error Type             | Status Code            | Content Type           |
-| ---------------------- | ---------------------- | ---------------------- |
-| errors.SDKDefaultError | 4XX, 5XX               | \*/\*                  |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |

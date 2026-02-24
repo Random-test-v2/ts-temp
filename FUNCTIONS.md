@@ -19,18 +19,18 @@ specific category of applications.
 ## Example
 
 ```typescript
-import { SDKCore } from "openapi/core.js";
-import { addonsCreateAddon } from "openapi/funcs/addons-create-addon.js";
+import { FlexPriceCore } from "flexprice-ts/core.js";
+import { addonsCreateAddon } from "flexprice-ts/funcs/addonsCreateAddon.js";
 
-// Use `SDKCore` for best tree-shaking performance.
+// Use `FlexPriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const sdk = new SDKCore({
+const flexPrice = new FlexPriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await addonsCreateAddon(sdk, {
+  const res = await addonsCreateAddon(flexPrice, {
     lookupKey: "<value>",
     name: "<value>",
     type: "multiple_instance",

@@ -1,0 +1,26 @@
+# TypesUserFilter
+
+## Example Usage
+
+```typescript
+import { TypesUserFilter } from "flexprice-ts/sdk/models/shared";
+
+let value: TypesUserFilter = {};
+```
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `endTime`                                                                           | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `expand`                                                                            | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `filters`                                                                           | [shared.TypesFilterCondition](../../../sdk/models/shared/typesfiltercondition.md)[] | :heavy_minus_sign:                                                                  | filters allows complex filtering based on multiple fields                           |
+| `limit`                                                                             | *number*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `offset`                                                                            | *number*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `order`                                                                             | [shared.TypesUserFilterOrder](../../../sdk/models/shared/typesuserfilterorder.md)   | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `roles`                                                                             | *string*[]                                                                          | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `sort`                                                                              | [shared.TypesSortCondition](../../../sdk/models/shared/typessortcondition.md)[]     | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `startTime`                                                                         | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `status`                                                                            | [shared.TypesStatus](../../../sdk/models/shared/typesstatus.md)                     | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `type`                                                                              | [shared.TypesUserType](../../../sdk/models/shared/typesusertype.md)                 | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `userIds`                                                                           | *string*[]                                                                          | :heavy_minus_sign:                                                                  | Specific filters for users                                                          |

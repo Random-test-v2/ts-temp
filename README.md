@@ -1,8 +1,8 @@
-# openapi
+# flexprice-ts
 
-Developer-friendly & type-safe Typescript SDK specifically catered to leverage *openapi* API.
+Developer-friendly & type-safe Typescript SDK specifically catered to leverage *flexprice-ts* API.
 
-[![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=openapi&utm_campaign=typescript)
+[![Built by Speakeasy](https://img.shields.io/badge/Built_by-SPEAKEASY-374151?style=for-the-badge&labelColor=f3f4f6)](https://www.speakeasy.com/?utm_source=flexprice-ts&utm_campaign=typescript)
 [![License: MIT](https://img.shields.io/badge/LICENSE_//_MIT-3b5bdb?style=for-the-badge&labelColor=eff6ff)](https://opensource.org/licenses/MIT)
 
 
@@ -19,7 +19,7 @@ Flexprice API: Flexprice API provides billing, metering, and subscription manage
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [openapi](#openapi)
+* [flexprice-ts](#flexprice-ts)
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [SDK Example Usage](#sdk-example-usage)
@@ -44,25 +44,25 @@ The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https
 ### NPM
 
 ```bash
-npm add openapi
+npm add flexprice-ts
 ```
 
 ### PNPM
 
 ```bash
-pnpm add openapi
+pnpm add flexprice-ts
 ```
 
 ### Bun
 
 ```bash
-bun add openapi
+bun add flexprice-ts
 ```
 
 ### Yarn
 
 ```bash
-yarn add openapi
+yarn add flexprice-ts
 ```
 
 > [!NOTE]
@@ -81,15 +81,15 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ### Example
 
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.addons.createAddon({
+  const result = await flexPrice.addons.createAddon({
     lookupKey: "<value>",
     name: "<value>",
     type: "multiple_instance",
@@ -116,15 +116,15 @@ This SDK supports the following security scheme globally:
 
 To authenticate with the API the `apiKeyAuth` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.addons.createAddon({
+  const result = await flexPrice.addons.createAddon({
     lookupKey: "<value>",
     name: "<value>",
     type: "multiple_instance",
@@ -147,11 +147,11 @@ run();
 ### [Addons](docs/sdks/addons/README.md)
 
 * [createAddon](docs/sdks/addons/README.md#createaddon) - Create addon
+* [deleteAddon](docs/sdks/addons/README.md#deleteaddon) - Delete addon
+* [getAddon](docs/sdks/addons/README.md#getaddon) - Get addon
 * [getAddonByLookupKey](docs/sdks/addons/README.md#getaddonbylookupkey) - Get addon by lookup key
 * [queryAddon](docs/sdks/addons/README.md#queryaddon) - Query addons
-* [getAddon](docs/sdks/addons/README.md#getaddon) - Get addon
 * [updateAddon](docs/sdks/addons/README.md#updateaddon) - Update addon
-* [deleteAddon](docs/sdks/addons/README.md#deleteaddon) - Delete addon
 
 ### [Alerts](docs/sdks/alerts/README.md)
 
@@ -160,29 +160,29 @@ run();
 ### [Costs](docs/sdks/costs/README.md)
 
 * [createCostsheet](docs/sdks/costs/README.md#createcostsheet) - Create costsheet
+* [deleteCostsheet](docs/sdks/costs/README.md#deletecostsheet) - Delete costsheet
 * [getActiveCostsheet](docs/sdks/costs/README.md#getactivecostsheet) - Get active costsheet
+* [getCostsheet](docs/sdks/costs/README.md#getcostsheet) - Get costsheet
 * [getDetailedCostAnalytics](docs/sdks/costs/README.md#getdetailedcostanalytics) - Get combined revenue and cost analytics
 * [getDetailedCostAnalyticsV2](docs/sdks/costs/README.md#getdetailedcostanalyticsv2) - Get combined revenue and cost analytics (V2)
 * [queryCostsheet](docs/sdks/costs/README.md#querycostsheet) - Query costsheets
-* [getCostsheet](docs/sdks/costs/README.md#getcostsheet) - Get costsheet
 * [updateCostsheet](docs/sdks/costs/README.md#updatecostsheet) - Update costsheet
-* [deleteCostsheet](docs/sdks/costs/README.md#deletecostsheet) - Delete costsheet
 
 ### [Coupons](docs/sdks/coupons/README.md)
 
 * [createCoupon](docs/sdks/coupons/README.md#createcoupon) - Create coupon
-* [queryCoupon](docs/sdks/coupons/README.md#querycoupon) - Query coupons
-* [getCoupon](docs/sdks/coupons/README.md#getcoupon) - Get coupon
-* [updateCoupon](docs/sdks/coupons/README.md#updatecoupon) - Update coupon
 * [deleteCoupon](docs/sdks/coupons/README.md#deletecoupon) - Delete coupon
+* [getCoupon](docs/sdks/coupons/README.md#getcoupon) - Get coupon
+* [queryCoupon](docs/sdks/coupons/README.md#querycoupon) - Query coupons
+* [updateCoupon](docs/sdks/coupons/README.md#updatecoupon) - Update coupon
 
 ### [CreditGrants](docs/sdks/creditgrants/README.md)
 
 * [createCreditGrant](docs/sdks/creditgrants/README.md#createcreditgrant) - Create credit grant
-* [getCreditGrant](docs/sdks/creditgrants/README.md#getcreditgrant) - Get credit grant
-* [updateCreditGrant](docs/sdks/creditgrants/README.md#updatecreditgrant) - Update credit grant
 * [deleteCreditGrant](docs/sdks/creditgrants/README.md#deletecreditgrant) - Delete credit grant
+* [getCreditGrant](docs/sdks/creditgrants/README.md#getcreditgrant) - Get credit grant
 * [getPlanCreditGrants](docs/sdks/creditgrants/README.md#getplancreditgrants) - Get plan credit grants
+* [updateCreditGrant](docs/sdks/creditgrants/README.md#updatecreditgrant) - Update credit grant
 
 ### [CreditNotes](docs/sdks/creditnotes/README.md)
 
@@ -193,26 +193,26 @@ run();
 
 ### [Customers](docs/sdks/customers/README.md)
 
-* [updateCustomer](docs/sdks/customers/README.md#updatecustomer) - Update customer
 * [createCustomer](docs/sdks/customers/README.md#createcustomer) - Create customer
-* [getCustomerByExternalId](docs/sdks/customers/README.md#getcustomerbyexternalid) - Get customer by external ID
-* [queryCustomer](docs/sdks/customers/README.md#querycustomer) - Query customers
-* [getCustomerUsageSummary](docs/sdks/customers/README.md#getcustomerusagesummary) - Get customer usage summary
-* [getCustomer](docs/sdks/customers/README.md#getcustomer) - Get customer
 * [deleteCustomer](docs/sdks/customers/README.md#deletecustomer) - Delete customer
+* [getCustomer](docs/sdks/customers/README.md#getcustomer) - Get customer
+* [getCustomerByExternalId](docs/sdks/customers/README.md#getcustomerbyexternalid) - Get customer by external ID
 * [getCustomerEntitlements](docs/sdks/customers/README.md#getcustomerentitlements) - Get customer entitlements
 * [getCustomerUpcomingGrants](docs/sdks/customers/README.md#getcustomerupcominggrants) - Get upcoming credit grant applications
+* [getCustomerUsageSummary](docs/sdks/customers/README.md#getcustomerusagesummary) - Get customer usage summary
+* [queryCustomer](docs/sdks/customers/README.md#querycustomer) - Query customers
+* [updateCustomer](docs/sdks/customers/README.md#updatecustomer) - Update customer
 
 ### [Entitlements](docs/sdks/entitlements/README.md)
 
-* [getAddonEntitlements](docs/sdks/entitlements/README.md#getaddonentitlements) - Get addon entitlements
 * [createEntitlement](docs/sdks/entitlements/README.md#createentitlement) - Create entitlement
 * [createEntitlementsBulk](docs/sdks/entitlements/README.md#createentitlementsbulk) - Create entitlements in bulk
-* [queryEntitlement](docs/sdks/entitlements/README.md#queryentitlement) - Query entitlements
-* [getEntitlement](docs/sdks/entitlements/README.md#getentitlement) - Get entitlement
-* [updateEntitlement](docs/sdks/entitlements/README.md#updateentitlement) - Update entitlement
 * [deleteEntitlement](docs/sdks/entitlements/README.md#deleteentitlement) - Delete entitlement
+* [getAddonEntitlements](docs/sdks/entitlements/README.md#getaddonentitlements) - Get addon entitlements
+* [getEntitlement](docs/sdks/entitlements/README.md#getentitlement) - Get entitlement
 * [getPlanEntitlements](docs/sdks/entitlements/README.md#getplanentitlements) - Get plan entitlements
+* [queryEntitlement](docs/sdks/entitlements/README.md#queryentitlement) - Query entitlements
+* [updateEntitlement](docs/sdks/entitlements/README.md#updateentitlement) - Update entitlement
 
 ### [EntityIntegrationMappings](docs/sdks/entityintegrationmappings/README.md)
 
@@ -226,170 +226,170 @@ run();
 
 ### [Events](docs/sdks/events/README.md)
 
-* [ingestEvent](docs/sdks/events/README.md#ingestevent) - Ingest event
-* [getUsageAnalytics](docs/sdks/events/README.md#getusageanalytics) - Get usage analytics
-* [ingestEventsBulk](docs/sdks/events/README.md#ingesteventsbulk) - Bulk ingest events
-* [getHuggingfaceInferenceData](docs/sdks/events/README.md#gethuggingfaceinferencedata) - Get Hugging Face inference data
-* [listRawEvents](docs/sdks/events/README.md#listrawevents) - List raw events
-* [getUsageStatistics](docs/sdks/events/README.md#getusagestatistics) - Get usage statistics
-* [getUsageByMeter](docs/sdks/events/README.md#getusagebymeter) - Get usage by meter
 * [getEvent](docs/sdks/events/README.md#getevent) - Get event
+* [getHuggingfaceInferenceData](docs/sdks/events/README.md#gethuggingfaceinferencedata) - Get Hugging Face inference data
+* [getUsageAnalytics](docs/sdks/events/README.md#getusageanalytics) - Get usage analytics
+* [getUsageByMeter](docs/sdks/events/README.md#getusagebymeter) - Get usage by meter
+* [getUsageStatistics](docs/sdks/events/README.md#getusagestatistics) - Get usage statistics
+* [ingestEvent](docs/sdks/events/README.md#ingestevent) - Ingest event
+* [ingestEventsBulk](docs/sdks/events/README.md#ingesteventsbulk) - Bulk ingest events
+* [listRawEvents](docs/sdks/events/README.md#listrawevents) - List raw events
 
 ### [Features](docs/sdks/features/README.md)
 
 * [createFeature](docs/sdks/features/README.md#createfeature) - Create feature
+* [deleteFeature](docs/sdks/features/README.md#deletefeature) - Delete feature
 * [queryFeature](docs/sdks/features/README.md#queryfeature) - Query features
 * [updateFeature](docs/sdks/features/README.md#updatefeature) - Update feature
-* [deleteFeature](docs/sdks/features/README.md#deletefeature) - Delete feature
 
 ### [Groups](docs/sdks/groups/README.md)
 
 * [createGroup](docs/sdks/groups/README.md#creategroup) - Create group
-* [queryGroup](docs/sdks/groups/README.md#querygroup) - Query groups
-* [getGroup](docs/sdks/groups/README.md#getgroup) - Get group
 * [deleteGroup](docs/sdks/groups/README.md#deletegroup) - Delete group
+* [getGroup](docs/sdks/groups/README.md#getgroup) - Get group
+* [queryGroup](docs/sdks/groups/README.md#querygroup) - Query groups
 
 ### [Integrations](docs/sdks/integrations/README.md)
 
-* [getIntegration](docs/sdks/integrations/README.md#getintegration) - Get integration details
 * [createOrUpdateIntegration](docs/sdks/integrations/README.md#createorupdateintegration) - Create or update an integration
-* [listLinkedIntegrations](docs/sdks/integrations/README.md#listlinkedintegrations) - List linked integrations
 * [deleteIntegration](docs/sdks/integrations/README.md#deleteintegration) - Delete an integration
+* [getIntegration](docs/sdks/integrations/README.md#getintegration) - Get integration details
+* [listLinkedIntegrations](docs/sdks/integrations/README.md#listlinkedintegrations) - List linked integrations
 
 ### [Invoices](docs/sdks/invoices/README.md)
 
-* [getCustomerInvoiceSummary](docs/sdks/invoices/README.md#getcustomerinvoicesummary) - Get customer invoice summary
+* [attemptInvoicePayment](docs/sdks/invoices/README.md#attemptinvoicepayment) - Attempt invoice payment
 * [createInvoice](docs/sdks/invoices/README.md#createinvoice) - Create one-off invoice
+* [finalizeInvoice](docs/sdks/invoices/README.md#finalizeinvoice) - Finalize invoice
+* [getCustomerInvoiceSummary](docs/sdks/invoices/README.md#getcustomerinvoicesummary) - Get customer invoice summary
+* [getInvoice](docs/sdks/invoices/README.md#getinvoice) - Get invoice
+* [getInvoicePdf](docs/sdks/invoices/README.md#getinvoicepdf) - Get invoice PDF
 * [getInvoicePreview](docs/sdks/invoices/README.md#getinvoicepreview) - Get invoice preview
 * [queryInvoice](docs/sdks/invoices/README.md#queryinvoice) - Query invoices
-* [getInvoice](docs/sdks/invoices/README.md#getinvoice) - Get invoice
-* [updateInvoice](docs/sdks/invoices/README.md#updateinvoice) - Update invoice
-* [triggerInvoiceCommsWebhook](docs/sdks/invoices/README.md#triggerinvoicecommswebhook) - Trigger invoice communication webhook
-* [finalizeInvoice](docs/sdks/invoices/README.md#finalizeinvoice) - Finalize invoice
-* [updateInvoicePaymentStatus](docs/sdks/invoices/README.md#updateinvoicepaymentstatus) - Update invoice payment status
-* [attemptInvoicePayment](docs/sdks/invoices/README.md#attemptinvoicepayment) - Attempt invoice payment
-* [getInvoicePdf](docs/sdks/invoices/README.md#getinvoicepdf) - Get invoice PDF
 * [recalculateInvoice](docs/sdks/invoices/README.md#recalculateinvoice) - Recalculate invoice
+* [triggerInvoiceCommsWebhook](docs/sdks/invoices/README.md#triggerinvoicecommswebhook) - Trigger invoice communication webhook
+* [updateInvoice](docs/sdks/invoices/README.md#updateinvoice) - Update invoice
+* [updateInvoicePaymentStatus](docs/sdks/invoices/README.md#updateinvoicepaymentstatus) - Update invoice payment status
 * [voidInvoice](docs/sdks/invoices/README.md#voidinvoice) - Void invoice
 
 ### [Payments](docs/sdks/payments/README.md)
 
-* [listPayments](docs/sdks/payments/README.md#listpayments) - List payments
 * [createPayment](docs/sdks/payments/README.md#createpayment) - Create payment
-* [getPayment](docs/sdks/payments/README.md#getpayment) - Get payment
-* [updatePayment](docs/sdks/payments/README.md#updatepayment) - Update payment
 * [deletePayment](docs/sdks/payments/README.md#deletepayment) - Delete payment
+* [getPayment](docs/sdks/payments/README.md#getpayment) - Get payment
+* [listPayments](docs/sdks/payments/README.md#listpayments) - List payments
 * [processPayment](docs/sdks/payments/README.md#processpayment) - Process payment
+* [updatePayment](docs/sdks/payments/README.md#updatepayment) - Update payment
 
 ### [Plans](docs/sdks/plans/README.md)
 
 * [createPlan](docs/sdks/plans/README.md#createplan) - Create plan
-* [queryPlan](docs/sdks/plans/README.md#queryplan) - Query plans
-* [getPlan](docs/sdks/plans/README.md#getplan) - Get plan
-* [updatePlan](docs/sdks/plans/README.md#updateplan) - Update plan
 * [deletePlan](docs/sdks/plans/README.md#deleteplan) - Delete plan
+* [getPlan](docs/sdks/plans/README.md#getplan) - Get plan
+* [queryPlan](docs/sdks/plans/README.md#queryplan) - Query plans
 * [syncPlanPrices](docs/sdks/plans/README.md#syncplanprices) - Synchronize plan prices
+* [updatePlan](docs/sdks/plans/README.md#updateplan) - Update plan
 
 ### [PriceUnits](docs/sdks/priceunits/README.md)
 
-* [listPriceUnits](docs/sdks/priceunits/README.md#listpriceunits) - List price units
 * [createPriceUnit](docs/sdks/priceunits/README.md#createpriceunit) - Create price unit
-* [getPriceUnitByCode](docs/sdks/priceunits/README.md#getpriceunitbycode) - Get price unit by code
-* [queryPriceUnit](docs/sdks/priceunits/README.md#querypriceunit) - Query price units
-* [getPriceUnit](docs/sdks/priceunits/README.md#getpriceunit) - Get price unit
-* [updatePriceUnit](docs/sdks/priceunits/README.md#updatepriceunit) - Update price unit
 * [deletePriceUnit](docs/sdks/priceunits/README.md#deletepriceunit) - Delete price unit
+* [getPriceUnit](docs/sdks/priceunits/README.md#getpriceunit) - Get price unit
+* [getPriceUnitByCode](docs/sdks/priceunits/README.md#getpriceunitbycode) - Get price unit by code
+* [listPriceUnits](docs/sdks/priceunits/README.md#listpriceunits) - List price units
+* [queryPriceUnit](docs/sdks/priceunits/README.md#querypriceunit) - Query price units
+* [updatePriceUnit](docs/sdks/priceunits/README.md#updatepriceunit) - Update price unit
 
 ### [Prices](docs/sdks/prices/README.md)
 
 * [createPrice](docs/sdks/prices/README.md#createprice) - Create price
 * [createPricesBulk](docs/sdks/prices/README.md#createpricesbulk) - Create prices in bulk
+* [deletePrice](docs/sdks/prices/README.md#deleteprice) - Delete price
+* [getPrice](docs/sdks/prices/README.md#getprice) - Get price
 * [getPriceByLookupKey](docs/sdks/prices/README.md#getpricebylookupkey) - Get price by lookup key
 * [queryPrice](docs/sdks/prices/README.md#queryprice) - Query prices
-* [getPrice](docs/sdks/prices/README.md#getprice) - Get price
 * [updatePrice](docs/sdks/prices/README.md#updateprice) - Update price
-* [deletePrice](docs/sdks/prices/README.md#deleteprice) - Delete price
 
 ### [Rbac](docs/sdks/rbac/README.md)
 
-* [listRbacRoles](docs/sdks/rbac/README.md#listrbacroles) - List all RBAC roles
 * [getRbacRole](docs/sdks/rbac/README.md#getrbacrole) - Get a specific RBAC role
+* [listRbacRoles](docs/sdks/rbac/README.md#listrbacroles) - List all RBAC roles
 
 ### [ScheduledTasks](docs/sdks/scheduledtasks/README.md)
 
-* [listScheduledTasks](docs/sdks/scheduledtasks/README.md#listscheduledtasks) - List scheduled tasks
 * [createScheduledTask](docs/sdks/scheduledtasks/README.md#createscheduledtask) - Create scheduled task
-* [scheduleUpdateBillingPeriod](docs/sdks/scheduledtasks/README.md#scheduleupdatebillingperiod) - Schedule update billing period
-* [getScheduledTask](docs/sdks/scheduledtasks/README.md#getscheduledtask) - Get scheduled task
-* [updateScheduledTask](docs/sdks/scheduledtasks/README.md#updatescheduledtask) - Update a scheduled task
 * [deleteScheduledTask](docs/sdks/scheduledtasks/README.md#deletescheduledtask) - Delete a scheduled task
+* [getScheduledTask](docs/sdks/scheduledtasks/README.md#getscheduledtask) - Get scheduled task
+* [listScheduledTasks](docs/sdks/scheduledtasks/README.md#listscheduledtasks) - List scheduled tasks
+* [scheduleUpdateBillingPeriod](docs/sdks/scheduledtasks/README.md#scheduleupdatebillingperiod) - Schedule update billing period
 * [triggerScheduledTaskRun](docs/sdks/scheduledtasks/README.md#triggerscheduledtaskrun) - Trigger force run
+* [updateScheduledTask](docs/sdks/scheduledtasks/README.md#updatescheduledtask) - Update a scheduled task
 
 ### [Secrets](docs/sdks/secrets/README.md)
 
-* [listApiKeys](docs/sdks/secrets/README.md#listapikeys) - List API keys
 * [createApiKey](docs/sdks/secrets/README.md#createapikey) - Create a new API key
 * [deleteApiKey](docs/sdks/secrets/README.md#deleteapikey) - Delete an API key
+* [listApiKeys](docs/sdks/secrets/README.md#listapikeys) - List API keys
 
 ### [Subscriptions](docs/sdks/subscriptions/README.md)
 
-* [createSubscription](docs/sdks/subscriptions/README.md#createsubscription) - Create subscription
-* [addSubscriptionAddon](docs/sdks/subscriptions/README.md#addsubscriptionaddon) - Add addon to subscription
-* [removeSubscriptionAddon](docs/sdks/subscriptions/README.md#removesubscriptionaddon) - Remove addon from subscription
-* [updateSubscriptionLineItem](docs/sdks/subscriptions/README.md#updatesubscriptionlineitem) - Update subscription line item
-* [deleteSubscriptionLineItem](docs/sdks/subscriptions/README.md#deletesubscriptionlineitem) - Delete subscription line item
-* [querySubscription](docs/sdks/subscriptions/README.md#querysubscription) - Query subscriptions
-* [getSubscriptionUsage](docs/sdks/subscriptions/README.md#getsubscriptionusage) - Get usage by subscription
-* [getSubscription](docs/sdks/subscriptions/README.md#getsubscription) - Get subscription
-* [updateSubscription](docs/sdks/subscriptions/README.md#updatesubscription) - Update subscription
 * [activateSubscription](docs/sdks/subscriptions/README.md#activatesubscription) - Activate draft subscription
-* [getSubscriptionAddonAssociations](docs/sdks/subscriptions/README.md#getsubscriptionaddonassociations) - Get active addon associations
+* [addSubscriptionAddon](docs/sdks/subscriptions/README.md#addsubscriptionaddon) - Add addon to subscription
 * [cancelSubscription](docs/sdks/subscriptions/README.md#cancelsubscription) - Cancel subscription
-* [executeSubscriptionChange](docs/sdks/subscriptions/README.md#executesubscriptionchange) - Execute subscription plan change
-* [previewSubscriptionChange](docs/sdks/subscriptions/README.md#previewsubscriptionchange) - Preview subscription plan change
-* [getSubscriptionEntitlements](docs/sdks/subscriptions/README.md#getsubscriptionentitlements) - Get subscription entitlements
-* [getSubscriptionUpcomingGrants](docs/sdks/subscriptions/README.md#getsubscriptionupcominggrants) - Get upcoming credit grant applications
+* [cancelSubscriptionSchedule](docs/sdks/subscriptions/README.md#cancelsubscriptionschedule) - Cancel subscription schedule
+* [createSubscription](docs/sdks/subscriptions/README.md#createsubscription) - Create subscription
 * [createSubscriptionLineItem](docs/sdks/subscriptions/README.md#createsubscriptionlineitem) - Create subscription line item
-* [pauseSubscription](docs/sdks/subscriptions/README.md#pausesubscription) - Pause a subscription
-* [listSubscriptionPauses](docs/sdks/subscriptions/README.md#listsubscriptionpauses) - List all pauses for a subscription
-* [resumeSubscription](docs/sdks/subscriptions/README.md#resumesubscription) - Resume a paused subscription
+* [deleteSubscriptionLineItem](docs/sdks/subscriptions/README.md#deletesubscriptionlineitem) - Delete subscription line item
+* [executeSubscriptionChange](docs/sdks/subscriptions/README.md#executesubscriptionchange) - Execute subscription plan change
+* [getSubscription](docs/sdks/subscriptions/README.md#getsubscription) - Get subscription
+* [getSubscriptionAddonAssociations](docs/sdks/subscriptions/README.md#getsubscriptionaddonassociations) - Get active addon associations
+* [getSubscriptionEntitlements](docs/sdks/subscriptions/README.md#getsubscriptionentitlements) - Get subscription entitlements
+* [getSubscriptionSchedule](docs/sdks/subscriptions/README.md#getsubscriptionschedule) - Get subscription schedule
+* [getSubscriptionUpcomingGrants](docs/sdks/subscriptions/README.md#getsubscriptionupcominggrants) - Get upcoming credit grant applications
+* [getSubscriptionUsage](docs/sdks/subscriptions/README.md#getsubscriptionusage) - Get usage by subscription
 * [getSubscriptionV2](docs/sdks/subscriptions/README.md#getsubscriptionv2) - Get subscription (V2)
 * [listAllSubscriptionSchedules](docs/sdks/subscriptions/README.md#listallsubscriptionschedules) - List all subscription schedules
-* [getSubscriptionSchedule](docs/sdks/subscriptions/README.md#getsubscriptionschedule) - Get subscription schedule
-* [cancelSubscriptionSchedule](docs/sdks/subscriptions/README.md#cancelsubscriptionschedule) - Cancel subscription schedule
+* [listSubscriptionPauses](docs/sdks/subscriptions/README.md#listsubscriptionpauses) - List all pauses for a subscription
 * [listSubscriptionSchedules](docs/sdks/subscriptions/README.md#listsubscriptionschedules) - List subscription schedules
+* [pauseSubscription](docs/sdks/subscriptions/README.md#pausesubscription) - Pause a subscription
+* [previewSubscriptionChange](docs/sdks/subscriptions/README.md#previewsubscriptionchange) - Preview subscription plan change
+* [querySubscription](docs/sdks/subscriptions/README.md#querysubscription) - Query subscriptions
+* [removeSubscriptionAddon](docs/sdks/subscriptions/README.md#removesubscriptionaddon) - Remove addon from subscription
+* [resumeSubscription](docs/sdks/subscriptions/README.md#resumesubscription) - Resume a paused subscription
+* [updateSubscription](docs/sdks/subscriptions/README.md#updatesubscription) - Update subscription
+* [updateSubscriptionLineItem](docs/sdks/subscriptions/README.md#updatesubscriptionlineitem) - Update subscription line item
 
 ### [Tasks](docs/sdks/tasks/README.md)
 
-* [listTasks](docs/sdks/tasks/README.md#listtasks) - List tasks
 * [createTask](docs/sdks/tasks/README.md#createtask) - Create a new task
-* [getTaskResult](docs/sdks/tasks/README.md#gettaskresult) - Get task processing result
-* [getTask](docs/sdks/tasks/README.md#gettask) - Get a task
 * [downloadTaskExport](docs/sdks/tasks/README.md#downloadtaskexport) - Download task export file
+* [getTask](docs/sdks/tasks/README.md#gettask) - Get a task
+* [getTaskResult](docs/sdks/tasks/README.md#gettaskresult) - Get task processing result
+* [listTasks](docs/sdks/tasks/README.md#listtasks) - List tasks
 * [updateTaskStatus](docs/sdks/tasks/README.md#updatetaskstatus) - Update task status
 
 ### [TaxAssociations](docs/sdks/taxassociations/README.md)
 
-* [listTaxAssociations](docs/sdks/taxassociations/README.md#listtaxassociations) - List tax associations
 * [createTaxAssociation](docs/sdks/taxassociations/README.md#createtaxassociation) - Create Tax Association
-* [getTaxAssociation](docs/sdks/taxassociations/README.md#gettaxassociation) - Get Tax Association
-* [updateTaxAssociation](docs/sdks/taxassociations/README.md#updatetaxassociation) - Update tax association
 * [deleteTaxAssociation](docs/sdks/taxassociations/README.md#deletetaxassociation) - Delete tax association
+* [getTaxAssociation](docs/sdks/taxassociations/README.md#gettaxassociation) - Get Tax Association
+* [listTaxAssociations](docs/sdks/taxassociations/README.md#listtaxassociations) - List tax associations
+* [updateTaxAssociation](docs/sdks/taxassociations/README.md#updatetaxassociation) - Update tax association
 
 ### [TaxRates](docs/sdks/taxrates/README.md)
 
-* [getTaxRates](docs/sdks/taxrates/README.md#gettaxrates) - Get tax rates
 * [createTaxRate](docs/sdks/taxrates/README.md#createtaxrate) - Create a tax rate
-* [getTaxRate](docs/sdks/taxrates/README.md#gettaxrate) - Get a tax rate
-* [updateTaxRate](docs/sdks/taxrates/README.md#updatetaxrate) - Update a tax rate
 * [deleteTaxRate](docs/sdks/taxrates/README.md#deletetaxrate) - Delete a tax rate
+* [getTaxRate](docs/sdks/taxrates/README.md#gettaxrate) - Get a tax rate
+* [getTaxRates](docs/sdks/taxrates/README.md#gettaxrates) - Get tax rates
+* [updateTaxRate](docs/sdks/taxrates/README.md#updatetaxrate) - Update a tax rate
 
 ### [Tenants](docs/sdks/tenants/README.md)
 
-* [getTenantBillingUsage](docs/sdks/tenants/README.md#gettenantbillingusage) - Get billing usage for the current tenant
 * [createTenant](docs/sdks/tenants/README.md#createtenant) - Create a new tenant
-* [updateTenant](docs/sdks/tenants/README.md#updatetenant) - Update a tenant
 * [getTenant](docs/sdks/tenants/README.md#gettenant) - Get tenant
+* [getTenantBillingUsage](docs/sdks/tenants/README.md#gettenantbillingusage) - Get billing usage for the current tenant
+* [updateTenant](docs/sdks/tenants/README.md#updatetenant) - Update a tenant
 
 ### [Users](docs/sdks/users/README.md)
 
@@ -399,17 +399,17 @@ run();
 
 ### [Wallets](docs/sdks/wallets/README.md)
 
-* [getCustomerWallets](docs/sdks/wallets/README.md#getcustomerwallets) - Get Customer Wallets
-* [getWalletsByCustomerId](docs/sdks/wallets/README.md#getwalletsbycustomerid) - Get wallets by customer ID
 * [createWallet](docs/sdks/wallets/README.md#createwallet) - Create a new wallet
+* [getCustomerWallets](docs/sdks/wallets/README.md#getcustomerwallets) - Get Customer Wallets
+* [getWallet](docs/sdks/wallets/README.md#getwallet) - Get wallet
+* [getWalletBalance](docs/sdks/wallets/README.md#getwalletbalance) - Get wallet balance
+* [getWalletTransactions](docs/sdks/wallets/README.md#getwallettransactions) - Get wallet transactions
+* [getWalletsByCustomerId](docs/sdks/wallets/README.md#getwalletsbycustomerid) - Get wallets by customer ID
 * [queryWallet](docs/sdks/wallets/README.md#querywallet) - Query wallets
 * [queryWalletTransaction](docs/sdks/wallets/README.md#querywallettransaction) - Query wallet transactions
-* [getWallet](docs/sdks/wallets/README.md#getwallet) - Get wallet
-* [updateWallet](docs/sdks/wallets/README.md#updatewallet) - Update a wallet
-* [getWalletBalance](docs/sdks/wallets/README.md#getwalletbalance) - Get wallet balance
 * [terminateWallet](docs/sdks/wallets/README.md#terminatewallet) - Terminate a wallet
 * [topUpWallet](docs/sdks/wallets/README.md#topupwallet) - Top up wallet
-* [getWalletTransactions](docs/sdks/wallets/README.md#getwallettransactions) - Get wallet transactions
+* [updateWallet](docs/sdks/wallets/README.md#updatewallet) - Update a wallet
 
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
@@ -642,15 +642,15 @@ Some of the endpoints in this SDK support retries.  If you use the SDK without a
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.addons.createAddon({
+  const result = await flexPrice.addons.createAddon({
     lookupKey: "<value>",
     name: "<value>",
     type: "multiple_instance",
@@ -676,9 +676,9 @@ run();
 
 If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   retryConfig: {
     strategy: "backoff",
@@ -694,7 +694,7 @@ const sdk = new SDK({
 });
 
 async function run() {
-  const result = await sdk.addons.createAddon({
+  const result = await flexPrice.addons.createAddon({
     lookupKey: "<value>",
     name: "<value>",
     type: "multiple_instance",
@@ -711,30 +711,29 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-[`SDKError`](./src/models/errors/sdk-error.ts) is the base class for all HTTP error responses. It has the following properties:
+[`FlexPriceError`](./src/sdk/models/errors/flexpriceerror.ts) is the base class for all HTTP error responses. It has the following properties:
 
-| Property            | Type       | Description                                                                             |
-| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
-| `error.message`     | `string`   | Error message                                                                           |
-| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
-| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
-| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
-| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
-| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
+| Property            | Type       | Description                                            |
+| ------------------- | ---------- | ------------------------------------------------------ |
+| `error.message`     | `string`   | Error message                                          |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                     |
+| `error.headers`     | `Headers`  | HTTP response headers                                  |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned. |
+| `error.rawResponse` | `Response` | Raw HTTP response                                      |
 
 ### Example
 ```typescript
-import { SDK } from "openapi";
-import * as errors from "openapi/models/errors";
+import { FlexPrice } from "flexprice-ts";
+import * as errors from "flexprice-ts/sdk/models/errors";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
   try {
-    const result = await sdk.addons.createAddon({
+    const result = await flexPrice.addons.createAddon({
       lookupKey: "<value>",
       name: "<value>",
       type: "multiple_instance",
@@ -742,18 +741,11 @@ async function run() {
 
     console.log(result);
   } catch (error) {
-    // The base class for HTTP error responses
-    if (error instanceof errors.SDKError) {
+    if (error instanceof errors.FlexPriceError) {
       console.log(error.message);
       console.log(error.statusCode);
       console.log(error.body);
       console.log(error.headers);
-
-      // Depending on the method different errors may be thrown
-      if (error instanceof errors.ErrorsErrorResponse) {
-        console.log(error.data$.error); // models.ErrorsErrorDetail
-        console.log(error.data$.success); // boolean
-      }
     }
   }
 }
@@ -763,28 +755,25 @@ run();
 ```
 
 ### Error Classes
-**Primary errors:**
-* [`SDKError`](./src/models/errors/sdk-error.ts): The base class for HTTP error responses.
-  * [`ErrorsErrorResponse`](./src/models/errors/errors-error-response.ts): *
+**Primary error:**
+* [`FlexPriceError`](./src/sdk/models/errors/flexpriceerror.ts): The base class for HTTP error responses.
 
 <details><summary>Less common errors (6)</summary>
 
 <br />
 
 **Network errors:**
-* [`ConnectionError`](./src/models/errors/http-client-errors.ts): HTTP client was unable to make a request to a server.
-* [`RequestTimeoutError`](./src/models/errors/http-client-errors.ts): HTTP request timed out due to an AbortSignal signal.
-* [`RequestAbortedError`](./src/models/errors/http-client-errors.ts): HTTP request was aborted by the client.
-* [`InvalidRequestError`](./src/models/errors/http-client-errors.ts): Any input used to create a request is invalid.
-* [`UnexpectedClientError`](./src/models/errors/http-client-errors.ts): Unrecognised or unexpected error.
+* [`ConnectionError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
+* [`RequestTimeoutError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
+* [`RequestAbortedError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
+* [`InvalidRequestError`](./src/sdk/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
+* [`UnexpectedClientError`](./src/sdk/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
 
 
-**Inherit from [`SDKError`](./src/models/errors/sdk-error.ts)**:
-* [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+**Inherit from [`FlexPriceError`](./src/sdk/models/errors/flexpriceerror.ts)**:
+* [`ResponseValidationError`](./src/sdk/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
-
-\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Custom HTTP Client [http-client] -->
@@ -806,9 +795,9 @@ The following example shows how to:
 - use the `"requestError"` hook to log errors
 
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 import { ProxyAgent } from "undici";
-import { HTTPClient } from "openapi/lib/http";
+import { HTTPClient } from "flexprice-ts/lib/http";
 
 const dispatcher = new ProxyAgent("http://proxy.example.com:8080");
 
@@ -836,7 +825,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new SDK({ httpClient: httpClient });
+const sdk = new FlexPrice({ httpClient: httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
@@ -851,9 +840,9 @@ You can pass a logger that matches `console`'s interface as an SDK option.
 > Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
 
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({ debugLogger: console });
+const sdk = new FlexPrice({ debugLogger: console });
 ```
 <!-- End Debugging [debug] -->
 
@@ -872,4 +861,4 @@ looking for the latest version.
 While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. 
 We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release. 
 
-### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=openapi&utm_campaign=typescript)
+### SDK Created by [Speakeasy](https://www.speakeasy.com/?utm_source=flexprice-ts&utm_campaign=typescript)

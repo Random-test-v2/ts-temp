@@ -17,15 +17,15 @@ Use when issuing a refund or adjustment (e.g. customer dispute or proration). Li
 
 <!-- UsageSnippet language="typescript" operationID="createCreditNote" method="post" path="/creditnotes" -->
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.creditNotes.createCreditNote({
+  const result = await flexPrice.creditNotes.createCreditNote({
     invoiceId: "<id>",
     reason: "FRAUDULENT",
   });
@@ -41,18 +41,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { SDKCore } from "openapi/core.js";
-import { creditNotesCreateCreditNote } from "openapi/funcs/credit-notes-create-credit-note.js";
+import { FlexPriceCore } from "flexprice-ts/core.js";
+import { creditNotesCreateCreditNote } from "flexprice-ts/funcs/creditNotesCreateCreditNote.js";
 
-// Use `SDKCore` for best tree-shaking performance.
+// Use `FlexPriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const sdk = new SDKCore({
+const flexPrice = new FlexPriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await creditNotesCreateCreditNote(sdk, {
+  const res = await creditNotesCreateCreditNote(flexPrice, {
     invoiceId: "<id>",
     reason: "FRAUDULENT",
   });
@@ -71,22 +71,20 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [models.DtoCreateCreditNoteRequest](../../models/dto-create-credit-note-request.md)                                                                                            | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [shared.DtoCreateCreditNoteRequest](../../sdk/models/shared/dtocreatecreditnoterequest.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[models.DtoCreditNoteResponse](../../models/dto-credit-note-response.md)\>**
+**Promise\<[operations.CreateCreditNoteResponse](../../sdk/models/operations/createcreditnoteresponse.md)\>**
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 401, 403, 404         | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## getCreditNote
 
@@ -96,15 +94,15 @@ Use when you need to load a single credit note (e.g. for display or reconciliati
 
 <!-- UsageSnippet language="typescript" operationID="getCreditNote" method="get" path="/creditnotes/{id}" -->
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.creditNotes.getCreditNote({
+  const result = await flexPrice.creditNotes.getCreditNote({
     id: "<id>",
   });
 
@@ -119,18 +117,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { SDKCore } from "openapi/core.js";
-import { creditNotesGetCreditNote } from "openapi/funcs/credit-notes-get-credit-note.js";
+import { FlexPriceCore } from "flexprice-ts/core.js";
+import { creditNotesGetCreditNote } from "flexprice-ts/funcs/creditNotesGetCreditNote.js";
 
-// Use `SDKCore` for best tree-shaking performance.
+// Use `FlexPriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const sdk = new SDKCore({
+const flexPrice = new FlexPriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await creditNotesGetCreditNote(sdk, {
+  const res = await creditNotesGetCreditNote(flexPrice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -148,22 +146,20 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetCreditNoteRequest](../../models/operations/get-credit-note-request.md)                                                                                          | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.GetCreditNoteRequest](../../sdk/models/operations/getcreditnoterequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[models.DtoCreditNoteResponse](../../models/dto-credit-note-response.md)\>**
+**Promise\<[operations.GetCreditNoteResponse](../../sdk/models/operations/getcreditnoteresponse.md)\>**
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 404                   | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## processCreditNote
 
@@ -173,15 +169,15 @@ Use when locking a draft credit note and applying the credit (e.g. after approva
 
 <!-- UsageSnippet language="typescript" operationID="processCreditNote" method="post" path="/creditnotes/{id}/finalize" -->
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.creditNotes.processCreditNote({
+  const result = await flexPrice.creditNotes.processCreditNote({
     id: "<id>",
   });
 
@@ -196,18 +192,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { SDKCore } from "openapi/core.js";
-import { creditNotesProcessCreditNote } from "openapi/funcs/credit-notes-process-credit-note.js";
+import { FlexPriceCore } from "flexprice-ts/core.js";
+import { creditNotesProcessCreditNote } from "flexprice-ts/funcs/creditNotesProcessCreditNote.js";
 
-// Use `SDKCore` for best tree-shaking performance.
+// Use `FlexPriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const sdk = new SDKCore({
+const flexPrice = new FlexPriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await creditNotesProcessCreditNote(sdk, {
+  const res = await creditNotesProcessCreditNote(flexPrice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -225,22 +221,20 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ProcessCreditNoteRequest](../../models/operations/process-credit-note-request.md)                                                                                  | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.ProcessCreditNoteRequest](../../sdk/models/operations/processcreditnoterequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[models.DtoCreditNoteResponse](../../models/dto-credit-note-response.md)\>**
+**Promise\<[operations.ProcessCreditNoteResponse](../../sdk/models/operations/processcreditnoteresponse.md)\>**
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 401, 403, 404         | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
 
 ## voidCreditNote
 
@@ -250,15 +244,15 @@ Use when cancelling a draft credit note (e.g. created by mistake). Only draft cr
 
 <!-- UsageSnippet language="typescript" operationID="voidCreditNote" method="post" path="/creditnotes/{id}/void" -->
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.creditNotes.voidCreditNote({
+  const result = await flexPrice.creditNotes.voidCreditNote({
     id: "<id>",
   });
 
@@ -273,18 +267,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { SDKCore } from "openapi/core.js";
-import { creditNotesVoidCreditNote } from "openapi/funcs/credit-notes-void-credit-note.js";
+import { FlexPriceCore } from "flexprice-ts/core.js";
+import { creditNotesVoidCreditNote } from "flexprice-ts/funcs/creditNotesVoidCreditNote.js";
 
-// Use `SDKCore` for best tree-shaking performance.
+// Use `FlexPriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const sdk = new SDKCore({
+const flexPrice = new FlexPriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await creditNotesVoidCreditNote(sdk, {
+  const res = await creditNotesVoidCreditNote(flexPrice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -302,19 +296,17 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.VoidCreditNoteRequest](../../models/operations/void-credit-note-request.md)                                                                                        | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.VoidCreditNoteRequest](../../sdk/models/operations/voidcreditnoterequest.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[models.DtoCreditNoteResponse](../../models/dto-credit-note-response.md)\>**
+**Promise\<[operations.VoidCreditNoteResponse](../../sdk/models/operations/voidcreditnoteresponse.md)\>**
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400, 401, 403, 404         | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |

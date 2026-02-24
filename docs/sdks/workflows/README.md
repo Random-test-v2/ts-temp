@@ -14,15 +14,15 @@ Use when listing or auditing workflow runs (e.g. ops dashboard or debugging). Re
 
 <!-- UsageSnippet language="typescript" operationID="queryWorkflow" method="post" path="/workflows/search" -->
 ```typescript
-import { SDK } from "openapi";
+import { FlexPrice } from "flexprice-ts";
 
-const sdk = new SDK({
+const flexPrice = new FlexPrice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await sdk.workflows.queryWorkflow({});
+  const result = await flexPrice.workflows.queryWorkflow({});
 
   console.log(result);
 }
@@ -35,18 +35,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { SDKCore } from "openapi/core.js";
-import { workflowsQueryWorkflow } from "openapi/funcs/workflows-query-workflow.js";
+import { FlexPriceCore } from "flexprice-ts/core.js";
+import { workflowsQueryWorkflow } from "flexprice-ts/funcs/workflowsQueryWorkflow.js";
 
-// Use `SDKCore` for best tree-shaking performance.
+// Use `FlexPriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const sdk = new SDKCore({
+const flexPrice = new FlexPriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await workflowsQueryWorkflow(sdk, {});
+  const res = await workflowsQueryWorkflow(flexPrice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -62,19 +62,17 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [models.TypesWorkflowExecutionFilter](../../models/types-workflow-execution-filter.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [shared.TypesWorkflowExecutionFilter](../../sdk/models/shared/typesworkflowexecutionfilter.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[models.DtoListWorkflowsResponse](../../models/dto-list-workflows-response.md)\>**
+**Promise\<[operations.QueryWorkflowResponse](../../sdk/models/operations/queryworkflowresponse.md)\>**
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.ErrorsErrorResponse | 400                        | application/json           |
-| errors.ErrorsErrorResponse | 500                        | application/json           |
-| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+| Error Type      | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4XX, 5XX        | \*/\*           |
