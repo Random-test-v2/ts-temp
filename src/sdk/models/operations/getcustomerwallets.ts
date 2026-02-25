@@ -10,6 +10,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetCustomerWalletsRequest = {
+  /**
+   * populated from x-max-live header, not query param
+   */
+  minus?: number | undefined;
   expand?: string | undefined;
   fromCache?: boolean | undefined;
   id?: string | undefined;
@@ -23,6 +27,7 @@ export type GetCustomerWalletsResponse =
 
 /** @internal */
 export type GetCustomerWalletsRequest$Outbound = {
+  "-"?: number | undefined;
   expand?: string | undefined;
   from_cache: boolean;
   id?: string | undefined;
@@ -36,6 +41,7 @@ export const GetCustomerWalletsRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetCustomerWalletsRequest
 > = z.object({
+  minus: z.number().int().optional(),
   expand: z.string().optional(),
   fromCache: z.boolean().default(false),
   id: z.string().optional(),
@@ -43,6 +49,7 @@ export const GetCustomerWalletsRequest$outboundSchema: z.ZodType<
   lookupKey: z.string().optional(),
 }).transform((v) => {
   return remap$(v, {
+    minus: "-",
     fromCache: "from_cache",
     includeRealTimeBalance: "include_real_time_balance",
     lookupKey: "lookup_key",

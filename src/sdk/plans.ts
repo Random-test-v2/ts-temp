@@ -5,6 +5,7 @@
 import { plansCreatePlan } from "../funcs/plansCreatePlan.js";
 import { plansDeletePlan } from "../funcs/plansDeletePlan.js";
 import { plansGetPlan } from "../funcs/plansGetPlan.js";
+import { plansPostPlansIdClone } from "../funcs/plansPostPlansIdClone.js";
 import { plansQueryPlan } from "../funcs/plansQueryPlan.js";
 import { plansSyncPlanPrices } from "../funcs/plansSyncPlanPrices.js";
 import { plansUpdatePlan } from "../funcs/plansUpdatePlan.js";
@@ -59,6 +60,23 @@ export class Plans extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.GetPlanResponse> {
     return unwrapAsync(plansGetPlan(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Clone a plan
+   *
+   * @remarks
+   * Clone an existing plan, copying its active prices, published entitlements, and published credit grants
+   */
+  async postPlansIdClone(
+    request: operations.PostPlansIdCloneRequest,
+    options?: RequestOptions,
+  ): Promise<operations.PostPlansIdCloneResponse> {
+    return unwrapAsync(plansPostPlansIdClone(
       this,
       request,
       options,

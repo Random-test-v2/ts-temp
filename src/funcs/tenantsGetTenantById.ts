@@ -3,7 +3,7 @@
  */
 
 import { FlexPriceCore } from "../core.js";
-import { encodeJSON } from "../lib/encodings.js";
+import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -21,23 +21,22 @@ import {
 import { ResponseValidationError } from "../sdk/models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
-import * as shared from "../sdk/models/shared/index.js";
 import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
- * Create a new tenant
+ * Get tenant by ID
  *
  * @remarks
- * Use when provisioning a new tenant (e.g. new org or workspace). Tenants are top-level isolation boundaries.
+ * Get tenant by ID
  */
-export function tenantsCreateTenant(
+export function tenantsGetTenantById(
   client: FlexPriceCore,
-  request: shared.DtoCreateTenantRequest,
+  request: operations.GetTenantByIdRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.CreateTenantResponse,
+    operations.GetTenantByIdResponse,
     | FlexPriceError
     | ResponseValidationError
     | ConnectionError
@@ -57,12 +56,12 @@ export function tenantsCreateTenant(
 
 async function $do(
   client: FlexPriceCore,
-  request: shared.DtoCreateTenantRequest,
+  request: operations.GetTenantByIdRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.CreateTenantResponse,
+      operations.GetTenantByIdResponse,
       | FlexPriceError
       | ResponseValidationError
       | ConnectionError
@@ -77,19 +76,25 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => shared.DtoCreateTenantRequest$outboundSchema.parse(value),
+    (value) => operations.GetTenantByIdRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload, { explode: true });
+  const body = null;
 
-  const path = pathToFunc("/tenants")();
+  const pathParams = {
+    id: encodeSimple("id", payload.id, {
+      explode: false,
+      charEncoding: "percent",
+    }),
+  };
+
+  const path = pathToFunc("/tenants/{id}")(pathParams);
 
   const headers = new Headers(compactMap({
-    "Content-Type": "application/json",
     Accept: "application/json",
   }));
 
@@ -100,7 +105,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "createTenant",
+    operationID: "getTenantById",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -114,7 +119,7 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "POST",
+    method: "GET",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -139,7 +144,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.CreateTenantResponse,
+    operations.GetTenantByIdResponse,
     | FlexPriceError
     | ResponseValidationError
     | ConnectionError
@@ -149,9 +154,9 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(201, operations.CreateTenantResponse$inboundSchema),
-    M.json(400, operations.CreateTenantResponse$inboundSchema),
-    M.json(500, operations.CreateTenantResponse$inboundSchema),
+    M.json(200, operations.GetTenantByIdResponse$inboundSchema),
+    M.json(404, operations.GetTenantByIdResponse$inboundSchema),
+    M.json(500, operations.GetTenantByIdResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];

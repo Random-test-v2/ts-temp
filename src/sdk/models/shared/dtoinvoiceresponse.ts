@@ -48,19 +48,19 @@ export type DtoInvoiceResponse = {
    * @remarks
    * These are non-cash reductions applied to the invoice (e.g. goodwill credit, billing correction).
    */
-  adjustmentAmount?: number | undefined;
+  adjustmentAmount?: string | undefined;
   /**
    * amount_due is the total amount that needs to be paid for this invoice
    */
-  amountDue?: number | undefined;
+  amountDue?: string | undefined;
   /**
    * amount_paid is the amount that has already been paid towards this invoice
    */
-  amountPaid?: number | undefined;
+  amountPaid?: string | undefined;
   /**
    * amount_remaining is the outstanding amount still owed on this invoice (calculated as amount_due minus amount_paid)
    */
-  amountRemaining?: number | undefined;
+  amountRemaining?: string | undefined;
   /**
    * billing_period describes the billing period this invoice covers (e.g., "January 2024", "Q1 2024")
    */
@@ -153,7 +153,7 @@ export type DtoInvoiceResponse = {
    * @remarks
    * These are actual refunds issued to the customer.
    */
-  refundedAmount?: number | undefined;
+  refundedAmount?: string | undefined;
   status?: TypesStatus | undefined;
   subscription?: DtoSubscriptionResponse | undefined;
   /**
@@ -163,7 +163,7 @@ export type DtoInvoiceResponse = {
   /**
    * subtotal is the sum of all line items before any taxes, discounts, or additional fees
    */
-  subtotal?: number | undefined;
+  subtotal?: string | undefined;
   /**
    * tax_applied_records contains the tax applied records associated with this invoice
    */
@@ -172,19 +172,19 @@ export type DtoInvoiceResponse = {
   /**
    * total is the final amount including taxes, fees, and discounts
    */
-  total?: number | undefined;
+  total?: string | undefined;
   /**
    * total_discount is the sum of all coupon discounts applied to the invoice
    */
-  totalDiscount?: number | undefined;
+  totalDiscount?: string | undefined;
   /**
    * total_prepaid_credits_applied is the total amount of prepaid credits applied to this invoice.
    */
-  totalPrepaidCreditsApplied?: number | undefined;
+  totalPrepaidCreditsApplied?: string | undefined;
   /**
    * total_tax is the sum of all taxes combined at the invoice level.
    */
-  totalTax?: number | undefined;
+  totalTax?: string | undefined;
   updatedAt?: string | undefined;
   updatedBy?: string | undefined;
   /**
@@ -203,10 +203,10 @@ export const DtoInvoiceResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  adjustment_amount: z.number().optional(),
-  amount_due: z.number().optional(),
-  amount_paid: z.number().optional(),
-  amount_remaining: z.number().optional(),
+  adjustment_amount: z.string().optional(),
+  amount_due: z.string().optional(),
+  amount_paid: z.string().optional(),
+  amount_remaining: z.string().optional(),
   billing_period: z.string().optional(),
   billing_reason: z.string().optional(),
   billing_sequence: z.number().int().optional(),
@@ -234,17 +234,17 @@ export const DtoInvoiceResponse$inboundSchema: z.ZodType<
   payment_status: TypesPaymentStatus$inboundSchema.optional(),
   period_end: z.string().optional(),
   period_start: z.string().optional(),
-  refunded_amount: z.number().optional(),
+  refunded_amount: z.string().optional(),
   status: TypesStatus$inboundSchema.optional(),
   subscription: z.lazy(() => DtoSubscriptionResponse$inboundSchema).optional(),
   subscription_id: z.string().optional(),
-  subtotal: z.number().optional(),
+  subtotal: z.string().optional(),
   taxes: z.array(DtoTaxAppliedResponse$inboundSchema).optional(),
   tenant_id: z.string().optional(),
-  total: z.number().optional(),
-  total_discount: z.number().optional(),
-  total_prepaid_credits_applied: z.number().optional(),
-  total_tax: z.number().optional(),
+  total: z.string().optional(),
+  total_discount: z.string().optional(),
+  total_prepaid_credits_applied: z.string().optional(),
+  total_tax: z.string().optional(),
   updated_at: z.string().optional(),
   updated_by: z.string().optional(),
   version: z.number().int().optional(),

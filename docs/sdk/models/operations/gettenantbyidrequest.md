@@ -1,11 +1,11 @@
-# GetTenantRequest
+# GetTenantByIdRequest
 
 ## Example Usage
 
 ```typescript
-import { GetTenantRequest } from "flexprice-ts/sdk/models/operations";
+import { GetTenantByIdRequest } from "flexprice-ts/sdk/models/operations";
 
-let value: GetTenantRequest = {
+let value: GetTenantByIdRequest = {
   id: "<id>",
 };
 ```

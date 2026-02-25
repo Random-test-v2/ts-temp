@@ -39,10 +39,10 @@ export type SubscriptionSubscriptionLineItem = {
   /**
    * Commitment fields
    */
-  commitmentAmount?: number | undefined;
+  commitmentAmount?: string | undefined;
   commitmentDuration?: TypesBillingPeriod | undefined;
-  commitmentOverageFactor?: number | undefined;
-  commitmentQuantity?: number | undefined;
+  commitmentOverageFactor?: string | undefined;
+  commitmentQuantity?: string | undefined;
   commitmentTrueUpEnabled?: boolean | undefined;
   commitmentType?: TypesCommitmentType | undefined;
   commitmentWindowed?: boolean | undefined;
@@ -85,10 +85,10 @@ export const SubscriptionSubscriptionLineItem$inboundSchema: z.ZodType<
 > = z.object({
   billing_period: TypesBillingPeriod$inboundSchema.optional(),
   billing_period_count: z.number().int().optional(),
-  commitment_amount: z.number().optional(),
+  commitment_amount: z.string().optional(),
   commitment_duration: TypesBillingPeriod$inboundSchema.optional(),
-  commitment_overage_factor: z.number().optional(),
-  commitment_quantity: z.number().optional(),
+  commitment_overage_factor: z.string().optional(),
+  commitment_quantity: z.string().optional(),
   commitment_true_up_enabled: z.boolean().optional(),
   commitment_type: TypesCommitmentType$inboundSchema.optional(),
   commitment_windowed: z.boolean().optional(),

@@ -3,7 +3,7 @@
  */
 
 import { FlexPriceCore } from "../core.js";
-import { encodeSimple } from "../lib/encodings.js";
+import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -25,18 +25,18 @@ import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
- * Get tenant
+ * Clone a plan
  *
  * @remarks
- * Use when you need to load a single tenant (e.g. for display or to check billing). Typically used in admin or multi-tenant contexts.
+ * Clone an existing plan, copying its active prices, published entitlements, and published credit grants
  */
-export function tenantsGetTenant(
+export function plansPostPlansIdClone(
   client: FlexPriceCore,
-  request: operations.GetTenantRequest,
+  request: operations.PostPlansIdCloneRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.GetTenantResponse,
+    operations.PostPlansIdCloneResponse,
     | FlexPriceError
     | ResponseValidationError
     | ConnectionError
@@ -56,12 +56,12 @@ export function tenantsGetTenant(
 
 async function $do(
   client: FlexPriceCore,
-  request: operations.GetTenantRequest,
+  request: operations.PostPlansIdCloneRequest,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.GetTenantResponse,
+      operations.PostPlansIdCloneResponse,
       | FlexPriceError
       | ResponseValidationError
       | ConnectionError
@@ -76,14 +76,16 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.GetTenantRequest$outboundSchema.parse(value),
+    (value) => operations.PostPlansIdCloneRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
     return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = null;
+  const body = encodeJSON("body", payload["dto.ClonePlanRequest"], {
+    explode: true,
+  });
 
   const pathParams = {
     id: encodeSimple("id", payload.id, {
@@ -92,9 +94,10 @@ async function $do(
     }),
   };
 
-  const path = pathToFunc("/tenants/{id}")(pathParams);
+  const path = pathToFunc("/plans/{id}/clone")(pathParams);
 
   const headers = new Headers(compactMap({
+    "Content-Type": "application/json",
     Accept: "application/json",
   }));
 
@@ -105,7 +108,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "getTenant",
+    operationID: "post_/plans/{id}/clone",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -119,7 +122,7 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "GET",
+    method: "POST",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -144,7 +147,7 @@ async function $do(
   const response = doResult.value;
 
   const [result] = await M.match<
-    operations.GetTenantResponse,
+    operations.PostPlansIdCloneResponse,
     | FlexPriceError
     | ResponseValidationError
     | ConnectionError
@@ -154,9 +157,9 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.GetTenantResponse$inboundSchema),
-    M.json(404, operations.GetTenantResponse$inboundSchema),
-    M.json(500, operations.GetTenantResponse$inboundSchema),
+    M.json(201, operations.PostPlansIdCloneResponse$inboundSchema),
+    M.json([400, 404, 409], operations.PostPlansIdCloneResponse$inboundSchema),
+    M.json(500, operations.PostPlansIdCloneResponse$inboundSchema),
   )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];

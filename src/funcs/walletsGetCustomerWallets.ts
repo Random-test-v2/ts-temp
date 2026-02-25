@@ -91,6 +91,7 @@ async function $do(
   const path = pathToFunc("/customers/wallets")();
 
   const query = encodeFormQuery({
+    "-": payload?.["-"],
     "expand": payload?.expand,
     "from_cache": payload?.from_cache,
     "id": payload?.id,

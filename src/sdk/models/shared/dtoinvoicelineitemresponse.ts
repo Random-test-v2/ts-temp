@@ -22,7 +22,7 @@ import {
 import { TypesStatus, TypesStatus$inboundSchema } from "./typesstatus.js";
 
 export type DtoInvoiceLineItemResponse = {
-  amount?: number | undefined;
+  amount?: string | undefined;
   commitmentInfo?: TypesCommitmentInfo | undefined;
   createdAt?: string | undefined;
   createdBy?: string | undefined;
@@ -37,11 +37,11 @@ export type DtoInvoiceLineItemResponse = {
   /**
    * invoice_level_discount is the discount amount in invoice currency applied to all line items on the invoice.
    */
-  invoiceLevelDiscount?: number | undefined;
+  invoiceLevelDiscount?: string | undefined;
   /**
    * line_item_discount is the discount amount in invoice currency applied directly to this line item.
    */
-  lineItemDiscount?: number | undefined;
+  lineItemDiscount?: string | undefined;
   metadata?: { [k: string]: string } | undefined;
   meterDisplayName?: string | undefined;
   meterId?: string | undefined;
@@ -51,13 +51,13 @@ export type DtoInvoiceLineItemResponse = {
   /**
    * prepaid_credits_applied is the amount in invoice currency reduced from this line item due to prepaid credits application.
    */
-  prepaidCreditsApplied?: number | undefined;
+  prepaidCreditsApplied?: string | undefined;
   priceId?: string | undefined;
   priceType?: string | undefined;
   priceUnit?: string | undefined;
-  priceUnitAmount?: number | undefined;
+  priceUnitAmount?: string | undefined;
   priceUnitId?: string | undefined;
-  quantity?: number | undefined;
+  quantity?: string | undefined;
   status?: TypesStatus | undefined;
   subscriptionId?: string | undefined;
   tenantId?: string | undefined;
@@ -79,7 +79,7 @@ export const DtoInvoiceLineItemResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  amount: z.number().optional(),
+  amount: z.string().optional(),
   commitment_info: TypesCommitmentInfo$inboundSchema.optional(),
   created_at: z.string().optional(),
   created_by: z.string().optional(),
@@ -91,21 +91,21 @@ export const DtoInvoiceLineItemResponse$inboundSchema: z.ZodType<
   environment_id: z.string().optional(),
   id: z.string().optional(),
   invoice_id: z.string().optional(),
-  invoice_level_discount: z.number().optional(),
-  line_item_discount: z.number().optional(),
+  invoice_level_discount: z.string().optional(),
+  line_item_discount: z.string().optional(),
   metadata: z.record(z.string()).optional(),
   meter_display_name: z.string().optional(),
   meter_id: z.string().optional(),
   period_end: z.string().optional(),
   period_start: z.string().optional(),
   plan_display_name: z.string().optional(),
-  prepaid_credits_applied: z.number().optional(),
+  prepaid_credits_applied: z.string().optional(),
   price_id: z.string().optional(),
   price_type: z.string().optional(),
   price_unit: z.string().optional(),
-  price_unit_amount: z.number().optional(),
+  price_unit_amount: z.string().optional(),
   price_unit_id: z.string().optional(),
-  quantity: z.number().optional(),
+  quantity: z.string().optional(),
   status: TypesStatus$inboundSchema.optional(),
   subscription_id: z.string().optional(),
   tenant_id: z.string().optional(),

@@ -8,42 +8,42 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
-export type GetTenantRequest = {
+export type GetTenantByIdRequest = {
   /**
    * Tenant ID
    */
   id: string;
 };
 
-export type GetTenantResponse =
+export type GetTenantByIdResponse =
   | shared.DtoTenantResponse
   | shared.ErrorsErrorResponse;
 
 /** @internal */
-export type GetTenantRequest$Outbound = {
+export type GetTenantByIdRequest$Outbound = {
   id: string;
 };
 
 /** @internal */
-export const GetTenantRequest$outboundSchema: z.ZodType<
-  GetTenantRequest$Outbound,
+export const GetTenantByIdRequest$outboundSchema: z.ZodType<
+  GetTenantByIdRequest$Outbound,
   z.ZodTypeDef,
-  GetTenantRequest
+  GetTenantByIdRequest
 > = z.object({
   id: z.string(),
 });
 
-export function getTenantRequestToJSON(
-  getTenantRequest: GetTenantRequest,
+export function getTenantByIdRequestToJSON(
+  getTenantByIdRequest: GetTenantByIdRequest,
 ): string {
   return JSON.stringify(
-    GetTenantRequest$outboundSchema.parse(getTenantRequest),
+    GetTenantByIdRequest$outboundSchema.parse(getTenantByIdRequest),
   );
 }
 
 /** @internal */
-export const GetTenantResponse$inboundSchema: z.ZodType<
-  GetTenantResponse,
+export const GetTenantByIdResponse$inboundSchema: z.ZodType<
+  GetTenantByIdResponse,
   z.ZodTypeDef,
   unknown
 > = z.union([
@@ -51,12 +51,12 @@ export const GetTenantResponse$inboundSchema: z.ZodType<
   shared.ErrorsErrorResponse$inboundSchema,
 ]);
 
-export function getTenantResponseFromJSON(
+export function getTenantByIdResponseFromJSON(
   jsonString: string,
-): SafeParseResult<GetTenantResponse, SDKValidationError> {
+): SafeParseResult<GetTenantByIdResponse, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => GetTenantResponse$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetTenantResponse' from JSON`,
+    (x) => GetTenantByIdResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetTenantByIdResponse' from JSON`,
   );
 }

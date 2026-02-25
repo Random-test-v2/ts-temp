@@ -1,4 +1,4 @@
-# GetTenantResponse
+# GetTenantByIdResponse
 
 
 ## Supported Types
