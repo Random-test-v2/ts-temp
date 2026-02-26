@@ -1,6 +1,6 @@
 {
   "name": "openapi",
-  "version": "0.0.1",
+  "version": "0.0.28",
   "author": "Speakeasy",
   "type": "module",
   "tshy": {
@@ -24,9 +24,7 @@
     "build": "tshy",
     "prepublishOnly": "npm run build"
   },
-  "peerDependencies": {
-    
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "@eslint/js": "^9.26.0",
     "eslint": "^9.26.0",
