@@ -11,15 +11,15 @@ dotenv.config();
  * npm run build && npx tsx addonsCreateAddon.example.ts
  */
 
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function main() {
-  const result = await flexPrice.addons.createAddon({
+  const result = await flexprice.addons.createAddon({
     lookupKey: "<value>",
     name: "<value>",
     type: "multiple_instance",

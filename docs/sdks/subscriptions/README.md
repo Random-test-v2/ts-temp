@@ -38,15 +38,15 @@ Use when turning a draft subscription live (e.g. after collecting payment or com
 
 <!-- UsageSnippet language="typescript" operationID="activateSubscription" method="post" path="/subscriptions/{id}/activate" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.activateSubscription({
+  const result = await flexprice.subscriptions.activateSubscription({
     id: "<id>",
     dtoActivateDraftSubscriptionRequest: {
       startDate: "<value>",
@@ -64,18 +64,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsActivateSubscription } from "flexprice-ts/funcs/subscriptionsActivateSubscription.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsActivateSubscription(flexPrice, {
+  const res = await subscriptionsActivateSubscription(flexprice, {
     id: "<id>",
     dtoActivateDraftSubscriptionRequest: {
       startDate: "<value>",
@@ -119,15 +119,15 @@ Use when adding an optional product or add-on to an existing subscription (e.g. 
 
 <!-- UsageSnippet language="typescript" operationID="addSubscriptionAddon" method="post" path="/subscriptions/addon" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.addSubscriptionAddon({
+  const result = await flexprice.subscriptions.addSubscriptionAddon({
     addonId: "<id>",
     subscriptionId: "<id>",
   });
@@ -143,18 +143,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsAddSubscriptionAddon } from "flexprice-ts/funcs/subscriptionsAddSubscriptionAddon.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsAddSubscriptionAddon(flexPrice, {
+  const res = await subscriptionsAddSubscriptionAddon(flexprice, {
     addonId: "<id>",
     subscriptionId: "<id>",
   });
@@ -196,15 +196,15 @@ Use when a customer churns or downgrades. Supports immediate or end-of-period ca
 
 <!-- UsageSnippet language="typescript" operationID="cancelSubscription" method="post" path="/subscriptions/{id}/cancel" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.cancelSubscription({
+  const result = await flexprice.subscriptions.cancelSubscription({
     id: "<id>",
     dtoCancelSubscriptionRequest: {
       cancellationType: "immediate",
@@ -222,18 +222,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsCancelSubscription } from "flexprice-ts/funcs/subscriptionsCancelSubscription.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsCancelSubscription(flexPrice, {
+  const res = await subscriptionsCancelSubscription(flexprice, {
     id: "<id>",
     dtoCancelSubscriptionRequest: {
       cancellationType: "immediate",
@@ -277,15 +277,15 @@ Use when cancelling a scheduled change (e.g. customer changed mind). Identify by
 
 <!-- UsageSnippet language="typescript" operationID="cancelSubscriptionSchedule" method="post" path="/v1/subscriptions/schedules/{schedule_id}/cancel" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.cancelSubscriptionSchedule({
+  const result = await flexprice.subscriptions.cancelSubscriptionSchedule({
     scheduleId: "<id>",
   });
 
@@ -300,18 +300,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsCancelSubscriptionSchedule } from "flexprice-ts/funcs/subscriptionsCancelSubscriptionSchedule.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsCancelSubscriptionSchedule(flexPrice, {
+  const res = await subscriptionsCancelSubscriptionSchedule(flexprice, {
     scheduleId: "<id>",
   });
   if (res.ok) {
@@ -352,15 +352,15 @@ Use when onboarding a customer to a plan or starting a new subscription. Ideal f
 
 <!-- UsageSnippet language="typescript" operationID="createSubscription" method="post" path="/subscriptions" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.createSubscription({
+  const result = await flexprice.subscriptions.createSubscription({
     billingCadence: "ONETIME",
     billingPeriod: "DAILY",
     currency: "New Leu",
@@ -378,18 +378,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsCreateSubscription } from "flexprice-ts/funcs/subscriptionsCreateSubscription.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsCreateSubscription(flexPrice, {
+  const res = await subscriptionsCreateSubscription(flexprice, {
     billingCadence: "ONETIME",
     billingPeriod: "DAILY",
     currency: "New Leu",
@@ -433,15 +433,15 @@ Use when adding a new charge or seat to a subscription (e.g. extra seat or one-t
 
 <!-- UsageSnippet language="typescript" operationID="createSubscriptionLineItem" method="post" path="/subscriptions/{id}/lineitems" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.createSubscriptionLineItem({
+  const result = await flexprice.subscriptions.createSubscriptionLineItem({
     id: "<id>",
     dtoCreateSubscriptionLineItemRequest: {},
   });
@@ -457,18 +457,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsCreateSubscriptionLineItem } from "flexprice-ts/funcs/subscriptionsCreateSubscriptionLineItem.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsCreateSubscriptionLineItem(flexPrice, {
+  const res = await subscriptionsCreateSubscriptionLineItem(flexprice, {
     id: "<id>",
     dtoCreateSubscriptionLineItemRequest: {},
   });
@@ -510,15 +510,15 @@ Use when removing a charge or seat from a subscription (e.g. downgrade). Line it
 
 <!-- UsageSnippet language="typescript" operationID="deleteSubscriptionLineItem" method="delete" path="/subscriptions/lineitems/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.deleteSubscriptionLineItem({
+  const result = await flexprice.subscriptions.deleteSubscriptionLineItem({
     id: "<id>",
     dtoDeleteSubscriptionLineItemRequest: {},
   });
@@ -534,18 +534,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsDeleteSubscriptionLineItem } from "flexprice-ts/funcs/subscriptionsDeleteSubscriptionLineItem.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsDeleteSubscriptionLineItem(flexPrice, {
+  const res = await subscriptionsDeleteSubscriptionLineItem(flexprice, {
     id: "<id>",
     dtoDeleteSubscriptionLineItemRequest: {},
   });
@@ -587,15 +587,15 @@ Use when applying a plan change (e.g. upgrade or downgrade). Executes proration 
 
 <!-- UsageSnippet language="typescript" operationID="executeSubscriptionChange" method="post" path="/subscriptions/{id}/change/execute" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.executeSubscriptionChange({
+  const result = await flexprice.subscriptions.executeSubscriptionChange({
     id: "<id>",
     dtoSubscriptionChangeRequest: {
       billingCadence: "RECURRING",
@@ -617,18 +617,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsExecuteSubscriptionChange } from "flexprice-ts/funcs/subscriptionsExecuteSubscriptionChange.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsExecuteSubscriptionChange(flexPrice, {
+  const res = await subscriptionsExecuteSubscriptionChange(flexprice, {
     id: "<id>",
     dtoSubscriptionChangeRequest: {
       billingCadence: "RECURRING",
@@ -676,15 +676,15 @@ Use when you need to load a single subscription (e.g. for a billing portal or to
 
 <!-- UsageSnippet language="typescript" operationID="getSubscription" method="get" path="/subscriptions/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.getSubscription({
+  const result = await flexprice.subscriptions.getSubscription({
     id: "<id>",
   });
 
@@ -699,18 +699,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsGetSubscription } from "flexprice-ts/funcs/subscriptionsGetSubscription.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsGetSubscription(flexPrice, {
+  const res = await subscriptionsGetSubscription(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -751,15 +751,15 @@ Use when listing which add-ons are currently attached to a subscription (e.g. fo
 
 <!-- UsageSnippet language="typescript" operationID="getSubscriptionAddonAssociations" method="get" path="/subscriptions/{id}/addons/associations" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.getSubscriptionAddonAssociations({
+  const result = await flexprice.subscriptions.getSubscriptionAddonAssociations({
     id: "<id>",
   });
 
@@ -774,18 +774,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsGetSubscriptionAddonAssociations } from "flexprice-ts/funcs/subscriptionsGetSubscriptionAddonAssociations.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsGetSubscriptionAddonAssociations(flexPrice, {
+  const res = await subscriptionsGetSubscriptionAddonAssociations(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -826,15 +826,15 @@ Use when checking what features or limits a subscription has (e.g. entitlement c
 
 <!-- UsageSnippet language="typescript" operationID="getSubscriptionEntitlements" method="get" path="/subscriptions/{id}/entitlements" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.getSubscriptionEntitlements({
+  const result = await flexprice.subscriptions.getSubscriptionEntitlements({
     id: "<id>",
   });
 
@@ -849,18 +849,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsGetSubscriptionEntitlements } from "flexprice-ts/funcs/subscriptionsGetSubscriptionEntitlements.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsGetSubscriptionEntitlements(flexPrice, {
+  const res = await subscriptionsGetSubscriptionEntitlements(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -901,15 +901,15 @@ Use when you need to load a single scheduled change (e.g. to show when a plan ch
 
 <!-- UsageSnippet language="typescript" operationID="getSubscriptionSchedule" method="get" path="/v1/subscription-schedules/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.getSubscriptionSchedule({
+  const result = await flexprice.subscriptions.getSubscriptionSchedule({
     id: "<id>",
   });
 
@@ -924,18 +924,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsGetSubscriptionSchedule } from "flexprice-ts/funcs/subscriptionsGetSubscriptionSchedule.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsGetSubscriptionSchedule(flexPrice, {
+  const res = await subscriptionsGetSubscriptionSchedule(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -976,15 +976,15 @@ Use when showing upcoming or pending credits for a subscription (e.g. in a porta
 
 <!-- UsageSnippet language="typescript" operationID="getSubscriptionUpcomingGrants" method="get" path="/subscriptions/{id}/grants/upcoming" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.getSubscriptionUpcomingGrants({
+  const result = await flexprice.subscriptions.getSubscriptionUpcomingGrants({
     id: "<id>",
   });
 
@@ -999,18 +999,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsGetSubscriptionUpcomingGrants } from "flexprice-ts/funcs/subscriptionsGetSubscriptionUpcomingGrants.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsGetSubscriptionUpcomingGrants(flexPrice, {
+  const res = await subscriptionsGetSubscriptionUpcomingGrants(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -1051,15 +1051,15 @@ Use when showing usage for a subscription (e.g. in a portal or for overage check
 
 <!-- UsageSnippet language="typescript" operationID="getSubscriptionUsage" method="post" path="/subscriptions/usage" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.getSubscriptionUsage({
+  const result = await flexprice.subscriptions.getSubscriptionUsage({
     endTime: "2024-03-20T00:00:00Z",
     lifetimeUsage: false,
     startTime: "2024-03-13T00:00:00Z",
@@ -1077,18 +1077,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsGetSubscriptionUsage } from "flexprice-ts/funcs/subscriptionsGetSubscriptionUsage.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsGetSubscriptionUsage(flexPrice, {
+  const res = await subscriptionsGetSubscriptionUsage(flexprice, {
     endTime: "2024-03-20T00:00:00Z",
     lifetimeUsage: false,
     startTime: "2024-03-13T00:00:00Z",
@@ -1132,15 +1132,15 @@ Use when you need a subscription with related data (line items, prices, plan). S
 
 <!-- UsageSnippet language="typescript" operationID="getSubscriptionV2" method="get" path="/subscriptions/{id}/v2" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.getSubscriptionV2({
+  const result = await flexprice.subscriptions.getSubscriptionV2({
     id: "<id>",
   });
 
@@ -1155,18 +1155,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsGetSubscriptionV2 } from "flexprice-ts/funcs/subscriptionsGetSubscriptionV2.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsGetSubscriptionV2(flexPrice, {
+  const res = await subscriptionsGetSubscriptionV2(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -1207,15 +1207,15 @@ Use when listing or searching scheduled changes across subscriptions (e.g. admin
 
 <!-- UsageSnippet language="typescript" operationID="listAllSubscriptionSchedules" method="get" path="/v1/subscription-schedules" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.listAllSubscriptionSchedules();
+  const result = await flexprice.subscriptions.listAllSubscriptionSchedules();
 
   console.log(result);
 }
@@ -1228,18 +1228,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsListAllSubscriptionSchedules } from "flexprice-ts/funcs/subscriptionsListAllSubscriptionSchedules.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsListAllSubscriptionSchedules(flexPrice);
+  const res = await subscriptionsListAllSubscriptionSchedules(flexprice);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -1278,15 +1278,15 @@ Use when showing pause history for a subscription (e.g. support or audit). Retur
 
 <!-- UsageSnippet language="typescript" operationID="listSubscriptionPauses" method="get" path="/subscriptions/{id}/pauses" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.listSubscriptionPauses({
+  const result = await flexprice.subscriptions.listSubscriptionPauses({
     id: "<id>",
   });
 
@@ -1301,18 +1301,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsListSubscriptionPauses } from "flexprice-ts/funcs/subscriptionsListSubscriptionPauses.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsListSubscriptionPauses(flexPrice, {
+  const res = await subscriptionsListSubscriptionPauses(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -1353,15 +1353,15 @@ Use when listing scheduled changes for a subscription (e.g. upcoming plan change
 
 <!-- UsageSnippet language="typescript" operationID="listSubscriptionSchedules" method="get" path="/v1/subscriptions/{subscription_id}/schedules" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.listSubscriptionSchedules({
+  const result = await flexprice.subscriptions.listSubscriptionSchedules({
     subscriptionId: "<id>",
   });
 
@@ -1376,18 +1376,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsListSubscriptionSchedules } from "flexprice-ts/funcs/subscriptionsListSubscriptionSchedules.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsListSubscriptionSchedules(flexPrice, {
+  const res = await subscriptionsListSubscriptionSchedules(flexprice, {
     subscriptionId: "<id>",
   });
   if (res.ok) {
@@ -1428,15 +1428,15 @@ Use when temporarily stopping a subscription (e.g. customer hold or seasonal pau
 
 <!-- UsageSnippet language="typescript" operationID="pauseSubscription" method="post" path="/subscriptions/{id}/pause" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.pauseSubscription({
+  const result = await flexprice.subscriptions.pauseSubscription({
     id: "<id>",
     dtoPauseSubscriptionRequest: {
       pauseMode: "scheduled",
@@ -1454,18 +1454,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsPauseSubscription } from "flexprice-ts/funcs/subscriptionsPauseSubscription.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsPauseSubscription(flexPrice, {
+  const res = await subscriptionsPauseSubscription(flexprice, {
     id: "<id>",
     dtoPauseSubscriptionRequest: {
       pauseMode: "scheduled",
@@ -1509,15 +1509,15 @@ Use when showing a customer the cost of a plan change before they confirm (e.g. 
 
 <!-- UsageSnippet language="typescript" operationID="previewSubscriptionChange" method="post" path="/subscriptions/{id}/change/preview" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.previewSubscriptionChange({
+  const result = await flexprice.subscriptions.previewSubscriptionChange({
     id: "<id>",
     dtoSubscriptionChangeRequest: {
       billingCadence: "RECURRING",
@@ -1539,18 +1539,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsPreviewSubscriptionChange } from "flexprice-ts/funcs/subscriptionsPreviewSubscriptionChange.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsPreviewSubscriptionChange(flexPrice, {
+  const res = await subscriptionsPreviewSubscriptionChange(flexprice, {
     id: "<id>",
     dtoSubscriptionChangeRequest: {
       billingCadence: "RECURRING",
@@ -1598,15 +1598,15 @@ Use when listing or searching subscriptions (e.g. admin view or customer subscri
 
 <!-- UsageSnippet language="typescript" operationID="querySubscription" method="post" path="/subscriptions/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.querySubscription({});
+  const result = await flexprice.subscriptions.querySubscription({});
 
   console.log(result);
 }
@@ -1619,18 +1619,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsQuerySubscription } from "flexprice-ts/funcs/subscriptionsQuerySubscription.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsQuerySubscription(flexPrice, {});
+  const res = await subscriptionsQuerySubscription(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -1669,15 +1669,15 @@ Use when removing an add-on from a subscription (e.g. downgrade or opt-out).
 
 <!-- UsageSnippet language="typescript" operationID="removeSubscriptionAddon" method="delete" path="/subscriptions/addon" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.removeSubscriptionAddon({
+  const result = await flexprice.subscriptions.removeSubscriptionAddon({
     addonAssociationId: "<id>",
   });
 
@@ -1692,18 +1692,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsRemoveSubscriptionAddon } from "flexprice-ts/funcs/subscriptionsRemoveSubscriptionAddon.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsRemoveSubscriptionAddon(flexPrice, {
+  const res = await subscriptionsRemoveSubscriptionAddon(flexprice, {
     addonAssociationId: "<id>",
   });
   if (res.ok) {
@@ -1744,15 +1744,15 @@ Use when reactivating a paused subscription (e.g. end of hold). Billing and acce
 
 <!-- UsageSnippet language="typescript" operationID="resumeSubscription" method="post" path="/subscriptions/{id}/resume" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.resumeSubscription({
+  const result = await flexprice.subscriptions.resumeSubscription({
     id: "<id>",
     dtoResumeSubscriptionRequest: {
       resumeMode: "auto",
@@ -1770,18 +1770,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsResumeSubscription } from "flexprice-ts/funcs/subscriptionsResumeSubscription.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsResumeSubscription(flexPrice, {
+  const res = await subscriptionsResumeSubscription(flexprice, {
     id: "<id>",
     dtoResumeSubscriptionRequest: {
       resumeMode: "auto",
@@ -1825,15 +1825,15 @@ Use when changing subscription details (e.g. quantity, billing anchor, or parent
 
 <!-- UsageSnippet language="typescript" operationID="updateSubscription" method="put" path="/subscriptions/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.updateSubscription({
+  const result = await flexprice.subscriptions.updateSubscription({
     id: "<id>",
     dtoUpdateSubscriptionRequest: {},
   });
@@ -1849,18 +1849,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsUpdateSubscription } from "flexprice-ts/funcs/subscriptionsUpdateSubscription.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsUpdateSubscription(flexPrice, {
+  const res = await subscriptionsUpdateSubscription(flexprice, {
     id: "<id>",
     dtoUpdateSubscriptionRequest: {},
   });
@@ -1902,15 +1902,15 @@ Use when changing a subscription line item (e.g. quantity or price). Implemented
 
 <!-- UsageSnippet language="typescript" operationID="updateSubscriptionLineItem" method="put" path="/subscriptions/lineitems/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.subscriptions.updateSubscriptionLineItem({
+  const result = await flexprice.subscriptions.updateSubscriptionLineItem({
     id: "<id>",
     dtoUpdateSubscriptionLineItemRequest: {},
   });
@@ -1926,18 +1926,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { subscriptionsUpdateSubscriptionLineItem } from "flexprice-ts/funcs/subscriptionsUpdateSubscriptionLineItem.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await subscriptionsUpdateSubscriptionLineItem(flexPrice, {
+  const res = await subscriptionsUpdateSubscriptionLineItem(flexprice, {
     id: "<id>",
     dtoUpdateSubscriptionLineItemRequest: {},
   });

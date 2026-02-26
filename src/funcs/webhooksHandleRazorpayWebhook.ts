@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { FlexPriceCore } from "../core.js";
+import { FlexpriceCore } from "../core.js";
 import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -32,7 +32,7 @@ import { Result } from "../sdk/types/fp.js";
  * Use as the Razorpay webhook endpoint URL. Receives payment capture and failure events to update invoice or payment status in FlexPrice.
  */
 export function webhooksHandleRazorpayWebhook(
-  client: FlexPriceCore,
+  client: FlexpriceCore,
   request: operations.HandleRazorpayWebhookRequest,
   options?: RequestOptions,
 ): APIPromise<
@@ -56,7 +56,7 @@ export function webhooksHandleRazorpayWebhook(
 }
 
 async function $do(
-  client: FlexPriceCore,
+  client: FlexpriceCore,
   request: operations.HandleRazorpayWebhookRequest,
   options?: RequestOptions,
 ): Promise<

@@ -16,15 +16,15 @@ Use when issuing a new API key (e.g. for a service account or for the current us
 
 <!-- UsageSnippet language="typescript" operationID="createApiKey" method="post" path="/secrets/api/keys" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.secrets.createApiKey({
+  const result = await flexprice.secrets.createApiKey({
     name: "<value>",
     type: "publishable_key",
   });
@@ -40,18 +40,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { secretsCreateApiKey } from "flexprice-ts/funcs/secretsCreateApiKey.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await secretsCreateApiKey(flexPrice, {
+  const res = await secretsCreateApiKey(flexprice, {
     name: "<value>",
     type: "publishable_key",
   });
@@ -93,15 +93,15 @@ Use when revoking an API key (e.g. rotation or compromise). Permanently invalida
 
 <!-- UsageSnippet language="typescript" operationID="deleteApiKey" method="delete" path="/secrets/api/keys/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.secrets.deleteApiKey({
+  const result = await flexprice.secrets.deleteApiKey({
     id: "<id>",
   });
 
@@ -116,18 +116,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { secretsDeleteApiKey } from "flexprice-ts/funcs/secretsDeleteApiKey.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await secretsDeleteApiKey(flexPrice, {
+  const res = await secretsDeleteApiKey(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -168,15 +168,15 @@ Use when listing API keys (e.g. admin view or rotating keys). Returns a paginate
 
 <!-- UsageSnippet language="typescript" operationID="listApiKeys" method="get" path="/secrets/api/keys" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.secrets.listApiKeys();
+  const result = await flexprice.secrets.listApiKeys();
 
   console.log(result);
 }
@@ -189,18 +189,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { secretsListApiKeys } from "flexprice-ts/funcs/secretsListApiKeys.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await secretsListApiKeys(flexPrice);
+  const res = await secretsListApiKeys(flexprice);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);

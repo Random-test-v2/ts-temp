@@ -20,15 +20,15 @@ Use when adding a new price to a plan or catalog (e.g. per-seat, flat, or metere
 
 <!-- UsageSnippet language="typescript" operationID="createPrice" method="post" path="/prices" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.prices.createPrice({
+  const result = await flexprice.prices.createPrice({
     billingCadence: "RECURRING",
     billingModel: "PACKAGE",
     billingPeriod: "HALF_YEARLY",
@@ -51,18 +51,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { pricesCreatePrice } from "flexprice-ts/funcs/pricesCreatePrice.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await pricesCreatePrice(flexPrice, {
+  const res = await pricesCreatePrice(flexprice, {
     billingCadence: "RECURRING",
     billingModel: "PACKAGE",
     billingPeriod: "HALF_YEARLY",
@@ -111,15 +111,15 @@ Use when creating many prices at once (e.g. importing a catalog or setting up a 
 
 <!-- UsageSnippet language="typescript" operationID="createPricesBulk" method="post" path="/prices/bulk" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.prices.createPricesBulk({
+  const result = await flexprice.prices.createPricesBulk({
     items: [],
   });
 
@@ -134,18 +134,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { pricesCreatePricesBulk } from "flexprice-ts/funcs/pricesCreatePricesBulk.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await pricesCreatePricesBulk(flexPrice, {
+  const res = await pricesCreatePricesBulk(flexprice, {
     items: [],
   });
   if (res.ok) {
@@ -186,15 +186,15 @@ Use when retiring a price (e.g. end-of-life or replacement). Optional effective 
 
 <!-- UsageSnippet language="typescript" operationID="deletePrice" method="delete" path="/prices/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.prices.deletePrice({
+  const result = await flexprice.prices.deletePrice({
     id: "<id>",
     dtoDeletePriceRequest: {},
   });
@@ -210,18 +210,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { pricesDeletePrice } from "flexprice-ts/funcs/pricesDeletePrice.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await pricesDeletePrice(flexPrice, {
+  const res = await pricesDeletePrice(flexprice, {
     id: "<id>",
     dtoDeletePriceRequest: {},
   });
@@ -263,15 +263,15 @@ Use when you need to load a single price (e.g. for display or editing). Response
 
 <!-- UsageSnippet language="typescript" operationID="getPrice" method="get" path="/prices/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.prices.getPrice({
+  const result = await flexprice.prices.getPrice({
     id: "<id>",
   });
 
@@ -286,18 +286,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { pricesGetPrice } from "flexprice-ts/funcs/pricesGetPrice.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await pricesGetPrice(flexPrice, {
+  const res = await pricesGetPrice(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -338,15 +338,15 @@ Use when resolving a price by external id (e.g. from your catalog or CMS). Ideal
 
 <!-- UsageSnippet language="typescript" operationID="getPriceByLookupKey" method="get" path="/prices/lookup/{lookup_key}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.prices.getPriceByLookupKey({
+  const result = await flexprice.prices.getPriceByLookupKey({
     lookupKey: "<value>",
   });
 
@@ -361,18 +361,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { pricesGetPriceByLookupKey } from "flexprice-ts/funcs/pricesGetPriceByLookupKey.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await pricesGetPriceByLookupKey(flexPrice, {
+  const res = await pricesGetPriceByLookupKey(flexprice, {
     lookupKey: "<value>",
   });
   if (res.ok) {
@@ -413,15 +413,15 @@ Use when listing or searching prices (e.g. plan builder or catalog). Returns a p
 
 <!-- UsageSnippet language="typescript" operationID="queryPrice" method="post" path="/prices/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.prices.queryPrice({});
+  const result = await flexprice.prices.queryPrice({});
 
   console.log(result);
 }
@@ -434,18 +434,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { pricesQueryPrice } from "flexprice-ts/funcs/pricesQueryPrice.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await pricesQueryPrice(flexPrice, {});
+  const res = await pricesQueryPrice(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -484,15 +484,15 @@ Use when changing price configuration (e.g. amount, billing scheme, or metadata)
 
 <!-- UsageSnippet language="typescript" operationID="updatePrice" method="put" path="/prices/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.prices.updatePrice({
+  const result = await flexprice.prices.updatePrice({
     id: "<id>",
     dtoUpdatePriceRequest: {},
   });
@@ -508,18 +508,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { pricesUpdatePrice } from "flexprice-ts/funcs/pricesUpdatePrice.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await pricesUpdatePrice(flexPrice, {
+  const res = await pricesUpdatePrice(flexprice, {
     id: "<id>",
     dtoUpdatePriceRequest: {},
   });

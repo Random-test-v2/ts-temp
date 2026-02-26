@@ -15,15 +15,15 @@ Use when setting up a new environment (e.g. production, staging) for the tenant.
 
 <!-- UsageSnippet language="typescript" operationID="createEnvironment" method="post" path="/environments" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.environments.createEnvironment({
+  const result = await flexprice.environments.createEnvironment({
     name: "<value>",
     type: "<value>",
   });
@@ -39,18 +39,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { environmentsCreateEnvironment } from "flexprice-ts/funcs/environmentsCreateEnvironment.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await environmentsCreateEnvironment(flexPrice, {
+  const res = await environmentsCreateEnvironment(flexprice, {
     name: "<value>",
     type: "<value>",
   });
@@ -92,15 +92,15 @@ Use when changing environment name or settings (e.g. renaming or updating metada
 
 <!-- UsageSnippet language="typescript" operationID="updateEnvironment" method="put" path="/environments/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.environments.updateEnvironment({
+  const result = await flexprice.environments.updateEnvironment({
     id: "<id>",
     dtoUpdateEnvironmentRequest: {},
   });
@@ -116,18 +116,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { environmentsUpdateEnvironment } from "flexprice-ts/funcs/environmentsUpdateEnvironment.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await environmentsUpdateEnvironment(flexPrice, {
+  const res = await environmentsUpdateEnvironment(flexprice, {
     id: "<id>",
     dtoUpdateEnvironmentRequest: {},
   });

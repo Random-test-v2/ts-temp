@@ -19,15 +19,15 @@ Use when defining an optional purchasable item (e.g. extra storage or support ti
 
 <!-- UsageSnippet language="typescript" operationID="createAddon" method="post" path="/addons" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.addons.createAddon({
+  const result = await flexprice.addons.createAddon({
     lookupKey: "<value>",
     name: "<value>",
     type: "multiple_instance",
@@ -44,18 +44,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { addonsCreateAddon } from "flexprice-ts/funcs/addonsCreateAddon.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await addonsCreateAddon(flexPrice, {
+  const res = await addonsCreateAddon(flexprice, {
     lookupKey: "<value>",
     name: "<value>",
     type: "multiple_instance",
@@ -98,15 +98,15 @@ Use when retiring an addon (e.g. end-of-life). Returns 200 with success message.
 
 <!-- UsageSnippet language="typescript" operationID="deleteAddon" method="delete" path="/addons/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.addons.deleteAddon({
+  const result = await flexprice.addons.deleteAddon({
     id: "<id>",
   });
 
@@ -121,18 +121,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { addonsDeleteAddon } from "flexprice-ts/funcs/addonsDeleteAddon.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await addonsDeleteAddon(flexPrice, {
+  const res = await addonsDeleteAddon(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -173,15 +173,15 @@ Use when you need to load a single addon (e.g. for display or to attach to a sub
 
 <!-- UsageSnippet language="typescript" operationID="getAddon" method="get" path="/addons/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.addons.getAddon({
+  const result = await flexprice.addons.getAddon({
     id: "<id>",
   });
 
@@ -196,18 +196,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { addonsGetAddon } from "flexprice-ts/funcs/addonsGetAddon.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await addonsGetAddon(flexPrice, {
+  const res = await addonsGetAddon(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -248,15 +248,15 @@ Use when resolving an addon by external id (e.g. from your product catalog). Ide
 
 <!-- UsageSnippet language="typescript" operationID="getAddonByLookupKey" method="get" path="/addons/lookup/{lookup_key}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.addons.getAddonByLookupKey({
+  const result = await flexprice.addons.getAddonByLookupKey({
     lookupKey: "<value>",
   });
 
@@ -271,18 +271,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { addonsGetAddonByLookupKey } from "flexprice-ts/funcs/addonsGetAddonByLookupKey.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await addonsGetAddonByLookupKey(flexPrice, {
+  const res = await addonsGetAddonByLookupKey(flexprice, {
     lookupKey: "<value>",
   });
   if (res.ok) {
@@ -323,15 +323,15 @@ Use when listing or searching addons (e.g. catalog or subscription builder). Ret
 
 <!-- UsageSnippet language="typescript" operationID="queryAddon" method="post" path="/addons/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.addons.queryAddon({});
+  const result = await flexprice.addons.queryAddon({});
 
   console.log(result);
 }
@@ -344,18 +344,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { addonsQueryAddon } from "flexprice-ts/funcs/addonsQueryAddon.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await addonsQueryAddon(flexPrice, {});
+  const res = await addonsQueryAddon(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -394,15 +394,15 @@ Use when changing addon details (e.g. name, pricing, or metadata).
 
 <!-- UsageSnippet language="typescript" operationID="updateAddon" method="put" path="/addons/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.addons.updateAddon({
+  const result = await flexprice.addons.updateAddon({
     id: "<id>",
     dtoUpdateAddonRequest: {},
   });
@@ -418,18 +418,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { addonsUpdateAddon } from "flexprice-ts/funcs/addonsUpdateAddon.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await addonsUpdateAddon(flexPrice, {
+  const res = await addonsUpdateAddon(flexprice, {
     id: "<id>",
     dtoUpdateAddonRequest: {},
   });

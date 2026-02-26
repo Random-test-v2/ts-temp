@@ -18,15 +18,15 @@ Use when defining a new tax rate (e.g. VAT or sales tax) for use in invoices. At
 
 <!-- UsageSnippet language="typescript" operationID="createTaxRate" method="post" path="/taxes/rates" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.taxRates.createTaxRate({
+  const result = await flexprice.taxRates.createTaxRate({
     code: "<value>",
     name: "<value>",
   });
@@ -42,18 +42,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { taxRatesCreateTaxRate } from "flexprice-ts/funcs/taxRatesCreateTaxRate.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await taxRatesCreateTaxRate(flexPrice, {
+  const res = await taxRatesCreateTaxRate(flexprice, {
     code: "<value>",
     name: "<value>",
   });
@@ -95,15 +95,15 @@ Use when retiring a tax rate (e.g. no longer applicable). Fails if still referen
 
 <!-- UsageSnippet language="typescript" operationID="deleteTaxRate" method="delete" path="/taxes/rates/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.taxRates.deleteTaxRate({
+  const result = await flexprice.taxRates.deleteTaxRate({
     id: "<id>",
   });
 
@@ -118,18 +118,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { taxRatesDeleteTaxRate } from "flexprice-ts/funcs/taxRatesDeleteTaxRate.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await taxRatesDeleteTaxRate(flexPrice, {
+  const res = await taxRatesDeleteTaxRate(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -170,15 +170,15 @@ Use when you need to load a single tax rate (e.g. for display or when creating a
 
 <!-- UsageSnippet language="typescript" operationID="getTaxRate" method="get" path="/taxes/rates/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.taxRates.getTaxRate({
+  const result = await flexprice.taxRates.getTaxRate({
     id: "<id>",
   });
 
@@ -193,18 +193,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { taxRatesGetTaxRate } from "flexprice-ts/funcs/taxRatesGetTaxRate.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await taxRatesGetTaxRate(flexPrice, {
+  const res = await taxRatesGetTaxRate(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -245,15 +245,15 @@ Use when listing tax rates (e.g. tax config UI). Returns tax rates with optional
 
 <!-- UsageSnippet language="typescript" operationID="getTaxRates" method="get" path="/taxes/rates" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.taxRates.getTaxRates();
+  const result = await flexprice.taxRates.getTaxRates();
 
   console.log(result);
 }
@@ -266,18 +266,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { taxRatesGetTaxRates } from "flexprice-ts/funcs/taxRatesGetTaxRates.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await taxRatesGetTaxRates(flexPrice);
+  const res = await taxRatesGetTaxRates(flexprice);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -316,15 +316,15 @@ Use when changing a tax rate (e.g. rate value or name). Request body contains th
 
 <!-- UsageSnippet language="typescript" operationID="updateTaxRate" method="put" path="/taxes/rates/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.taxRates.updateTaxRate({
+  const result = await flexprice.taxRates.updateTaxRate({
     id: "<id>",
     dtoUpdateTaxRateRequest: {},
   });
@@ -340,18 +340,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { taxRatesUpdateTaxRate } from "flexprice-ts/funcs/taxRatesUpdateTaxRate.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await taxRatesUpdateTaxRate(flexPrice, {
+  const res = await taxRatesUpdateTaxRate(flexprice, {
     id: "<id>",
     dtoUpdateTaxRateRequest: {},
   });

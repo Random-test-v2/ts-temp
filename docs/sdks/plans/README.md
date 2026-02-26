@@ -20,15 +20,15 @@ Use when defining a new pricing plan (e.g. Free, Pro, Enterprise). Attach prices
 
 <!-- UsageSnippet language="typescript" operationID="createPlan" method="post" path="/plans" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.plans.createPlan({
+  const result = await flexprice.plans.createPlan({
     name: "<value>",
   });
 
@@ -43,18 +43,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { plansCreatePlan } from "flexprice-ts/funcs/plansCreatePlan.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await plansCreatePlan(flexPrice, {
+  const res = await plansCreatePlan(flexprice, {
     name: "<value>",
   });
   if (res.ok) {
@@ -95,15 +95,15 @@ Use when retiring a plan (e.g. end-of-life). Existing subscriptions may be affec
 
 <!-- UsageSnippet language="typescript" operationID="deletePlan" method="delete" path="/plans/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.plans.deletePlan({
+  const result = await flexprice.plans.deletePlan({
     id: "<id>",
   });
 
@@ -118,18 +118,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { plansDeletePlan } from "flexprice-ts/funcs/plansDeletePlan.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await plansDeletePlan(flexPrice, {
+  const res = await plansDeletePlan(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -170,15 +170,15 @@ Use when you need to load a single plan (e.g. for display or to create a subscri
 
 <!-- UsageSnippet language="typescript" operationID="getPlan" method="get" path="/plans/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.plans.getPlan({
+  const result = await flexprice.plans.getPlan({
     id: "<id>",
   });
 
@@ -193,18 +193,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { plansGetPlan } from "flexprice-ts/funcs/plansGetPlan.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await plansGetPlan(flexPrice, {
+  const res = await plansGetPlan(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -245,15 +245,15 @@ Clone an existing plan, copying its active prices, published entitlements, and p
 
 <!-- UsageSnippet language="typescript" operationID="post_/plans/{id}/clone" method="post" path="/plans/{id}/clone" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.plans.postPlansIdClone({
+  const result = await flexprice.plans.postPlansIdClone({
     id: "<id>",
     dtoClonePlanRequest: {},
   });
@@ -269,18 +269,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { plansPostPlansIdClone } from "flexprice-ts/funcs/plansPostPlansIdClone.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await plansPostPlansIdClone(flexPrice, {
+  const res = await plansPostPlansIdClone(flexprice, {
     id: "<id>",
     dtoClonePlanRequest: {},
   });
@@ -322,15 +322,15 @@ Use when listing or searching plans (e.g. plan picker or admin catalog). Returns
 
 <!-- UsageSnippet language="typescript" operationID="queryPlan" method="post" path="/plans/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.plans.queryPlan({});
+  const result = await flexprice.plans.queryPlan({});
 
   console.log(result);
 }
@@ -343,18 +343,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { plansQueryPlan } from "flexprice-ts/funcs/plansQueryPlan.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await plansQueryPlan(flexPrice, {});
+  const res = await plansQueryPlan(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -393,15 +393,15 @@ Use when you have changed plan prices and need to push them to all active subscr
 
 <!-- UsageSnippet language="typescript" operationID="syncPlanPrices" method="post" path="/plans/{id}/sync/subscriptions" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.plans.syncPlanPrices({
+  const result = await flexprice.plans.syncPlanPrices({
     id: "<id>",
   });
 
@@ -416,18 +416,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { plansSyncPlanPrices } from "flexprice-ts/funcs/plansSyncPlanPrices.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await plansSyncPlanPrices(flexPrice, {
+  const res = await plansSyncPlanPrices(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -468,15 +468,15 @@ Use when changing plan details (e.g. name, interval, or metadata). Partial updat
 
 <!-- UsageSnippet language="typescript" operationID="updatePlan" method="put" path="/plans/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.plans.updatePlan({
+  const result = await flexprice.plans.updatePlan({
     id: "<id>",
     dtoUpdatePlanRequest: {},
   });
@@ -492,18 +492,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { plansUpdatePlan } from "flexprice-ts/funcs/plansUpdatePlan.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await plansUpdatePlan(flexPrice, {
+  const res = await plansUpdatePlan(flexprice, {
     id: "<id>",
     dtoUpdatePlanRequest: {},
   });

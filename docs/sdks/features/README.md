@@ -17,15 +17,15 @@ Use when defining a new feature or capability to gate or meter (e.g. feature fla
 
 <!-- UsageSnippet language="typescript" operationID="createFeature" method="post" path="/features" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.features.createFeature({
+  const result = await flexprice.features.createFeature({
     meter: {
       aggregation: {},
       eventName: "api_request",
@@ -47,18 +47,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { featuresCreateFeature } from "flexprice-ts/funcs/featuresCreateFeature.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await featuresCreateFeature(flexPrice, {
+  const res = await featuresCreateFeature(flexprice, {
     meter: {
       aggregation: {},
       eventName: "api_request",
@@ -106,15 +106,15 @@ Use when retiring a feature (e.g. deprecated capability). Returns 200 with succe
 
 <!-- UsageSnippet language="typescript" operationID="deleteFeature" method="delete" path="/features/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.features.deleteFeature({
+  const result = await flexprice.features.deleteFeature({
     id: "<id>",
   });
 
@@ -129,18 +129,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { featuresDeleteFeature } from "flexprice-ts/funcs/featuresDeleteFeature.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await featuresDeleteFeature(flexPrice, {
+  const res = await featuresDeleteFeature(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -181,15 +181,15 @@ Use when listing or searching features (e.g. catalog or entitlement setup). Retu
 
 <!-- UsageSnippet language="typescript" operationID="queryFeature" method="post" path="/features/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.features.queryFeature({});
+  const result = await flexprice.features.queryFeature({});
 
   console.log(result);
 }
@@ -202,18 +202,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { featuresQueryFeature } from "flexprice-ts/funcs/featuresQueryFeature.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await featuresQueryFeature(flexPrice, {});
+  const res = await featuresQueryFeature(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -252,15 +252,15 @@ Use when changing feature definition (e.g. name, type, or meter). Request body c
 
 <!-- UsageSnippet language="typescript" operationID="updateFeature" method="put" path="/features/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.features.updateFeature({
+  const result = await flexprice.features.updateFeature({
     id: "<id>",
     dtoUpdateFeatureRequest: {},
   });
@@ -276,18 +276,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { featuresUpdateFeature } from "flexprice-ts/funcs/featuresUpdateFeature.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await featuresUpdateFeature(flexPrice, {
+  const res = await featuresUpdateFeature(flexprice, {
     id: "<id>",
     dtoUpdateFeatureRequest: {},
   });

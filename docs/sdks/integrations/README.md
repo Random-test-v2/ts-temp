@@ -17,15 +17,15 @@ Use when storing or updating credentials for an external integration (e.g. Strip
 
 <!-- UsageSnippet language="typescript" operationID="createOrUpdateIntegration" method="post" path="/secrets/integrations/create/{provider}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.integrations.createOrUpdateIntegration({
+  const result = await flexprice.integrations.createOrUpdateIntegration({
     provider: "<value>",
     dtoCreateIntegrationRequest: {
       credentials: {
@@ -47,18 +47,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { integrationsCreateOrUpdateIntegration } from "flexprice-ts/funcs/integrationsCreateOrUpdateIntegration.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await integrationsCreateOrUpdateIntegration(flexPrice, {
+  const res = await integrationsCreateOrUpdateIntegration(flexprice, {
     provider: "<value>",
     dtoCreateIntegrationRequest: {
       credentials: {
@@ -106,15 +106,15 @@ Use when disconnecting an integration (e.g. switching provider or removing OAuth
 
 <!-- UsageSnippet language="typescript" operationID="deleteIntegration" method="delete" path="/secrets/integrations/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.integrations.deleteIntegration({
+  const result = await flexprice.integrations.deleteIntegration({
     id: "<id>",
   });
 
@@ -129,18 +129,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { integrationsDeleteIntegration } from "flexprice-ts/funcs/integrationsDeleteIntegration.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await integrationsDeleteIntegration(flexPrice, {
+  const res = await integrationsDeleteIntegration(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -181,15 +181,15 @@ Use when you need to check or display integration config (e.g. which provider is
 
 <!-- UsageSnippet language="typescript" operationID="getIntegration" method="get" path="/secrets/integrations/by-provider/{provider}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.integrations.getIntegration({
+  const result = await flexprice.integrations.getIntegration({
     provider: "<value>",
   });
 
@@ -204,18 +204,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { integrationsGetIntegration } from "flexprice-ts/funcs/integrationsGetIntegration.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await integrationsGetIntegration(flexPrice, {
+  const res = await integrationsGetIntegration(flexprice, {
     provider: "<value>",
   });
   if (res.ok) {
@@ -256,15 +256,15 @@ Use when showing which integrations are connected (e.g. settings page). Returns 
 
 <!-- UsageSnippet language="typescript" operationID="listLinkedIntegrations" method="get" path="/secrets/integrations/linked" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.integrations.listLinkedIntegrations();
+  const result = await flexprice.integrations.listLinkedIntegrations();
 
   console.log(result);
 }
@@ -277,18 +277,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { integrationsListLinkedIntegrations } from "flexprice-ts/funcs/integrationsListLinkedIntegrations.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await integrationsListLinkedIntegrations(flexPrice);
+  const res = await integrationsListLinkedIntegrations(flexprice);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);

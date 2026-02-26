@@ -20,15 +20,15 @@ Use as the Chargebee webhook endpoint URL. Receives payment and subscription eve
 
 <!-- UsageSnippet language="typescript" operationID="handleChargebeeWebhook" method="post" path="/webhooks/chargebee/{tenant_id}/{environment_id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.webhooks.handleChargebeeWebhook({
+  const result = await flexprice.webhooks.handleChargebeeWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -44,18 +44,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { webhooksHandleChargebeeWebhook } from "flexprice-ts/funcs/webhooksHandleChargebeeWebhook.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleChargebeeWebhook(flexPrice, {
+  const res = await webhooksHandleChargebeeWebhook(flexprice, {
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -97,15 +97,15 @@ Use as the HubSpot webhook endpoint URL. Receives deal and customer events (e.g.
 
 <!-- UsageSnippet language="typescript" operationID="handleHubspotWebhook" method="post" path="/webhooks/hubspot/{tenant_id}/{environment_id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.webhooks.handleHubspotWebhook({
+  const result = await flexprice.webhooks.handleHubspotWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
     xHubSpotSignatureV3: "<value>",
@@ -122,18 +122,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { webhooksHandleHubspotWebhook } from "flexprice-ts/funcs/webhooksHandleHubspotWebhook.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleHubspotWebhook(flexPrice, {
+  const res = await webhooksHandleHubspotWebhook(flexprice, {
     tenantId: "<id>",
     environmentId: "<id>",
     xHubSpotSignatureV3: "<value>",
@@ -176,15 +176,15 @@ Use as the Moyasar webhook endpoint URL. Receives payment events from Moyasar to
 
 <!-- UsageSnippet language="typescript" operationID="handleMoyasarWebhook" method="post" path="/webhooks/moyasar/{tenant_id}/{environment_id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.webhooks.handleMoyasarWebhook({
+  const result = await flexprice.webhooks.handleMoyasarWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -200,18 +200,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { webhooksHandleMoyasarWebhook } from "flexprice-ts/funcs/webhooksHandleMoyasarWebhook.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleMoyasarWebhook(flexPrice, {
+  const res = await webhooksHandleMoyasarWebhook(flexprice, {
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -253,15 +253,15 @@ Use as the Nomod webhook endpoint URL. Receives payment and invoice events from 
 
 <!-- UsageSnippet language="typescript" operationID="handleNomodWebhook" method="post" path="/webhooks/nomod/{tenant_id}/{environment_id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.webhooks.handleNomodWebhook({
+  const result = await flexprice.webhooks.handleNomodWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -277,18 +277,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { webhooksHandleNomodWebhook } from "flexprice-ts/funcs/webhooksHandleNomodWebhook.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleNomodWebhook(flexPrice, {
+  const res = await webhooksHandleNomodWebhook(flexprice, {
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -330,15 +330,15 @@ Use as the QuickBooks webhook endpoint URL. Receives payment events from QuickBo
 
 <!-- UsageSnippet language="typescript" operationID="handleQuickbooksWebhook" method="post" path="/webhooks/quickbooks/{tenant_id}/{environment_id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.webhooks.handleQuickbooksWebhook({
+  const result = await flexprice.webhooks.handleQuickbooksWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -354,18 +354,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { webhooksHandleQuickbooksWebhook } from "flexprice-ts/funcs/webhooksHandleQuickbooksWebhook.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleQuickbooksWebhook(flexPrice, {
+  const res = await webhooksHandleQuickbooksWebhook(flexprice, {
     tenantId: "<id>",
     environmentId: "<id>",
   });
@@ -407,15 +407,15 @@ Use as the Razorpay webhook endpoint URL. Receives payment capture and failure e
 
 <!-- UsageSnippet language="typescript" operationID="handleRazorpayWebhook" method="post" path="/webhooks/razorpay/{tenant_id}/{environment_id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.webhooks.handleRazorpayWebhook({
+  const result = await flexprice.webhooks.handleRazorpayWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
     xRazorpaySignature: "<value>",
@@ -432,18 +432,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { webhooksHandleRazorpayWebhook } from "flexprice-ts/funcs/webhooksHandleRazorpayWebhook.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleRazorpayWebhook(flexPrice, {
+  const res = await webhooksHandleRazorpayWebhook(flexprice, {
     tenantId: "<id>",
     environmentId: "<id>",
     xRazorpaySignature: "<value>",
@@ -486,15 +486,15 @@ Use as the Stripe webhook endpoint URL. Receives payment and customer events fro
 
 <!-- UsageSnippet language="typescript" operationID="handleStripeWebhook" method="post" path="/webhooks/stripe/{tenant_id}/{environment_id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.webhooks.handleStripeWebhook({
+  const result = await flexprice.webhooks.handleStripeWebhook({
     tenantId: "<id>",
     environmentId: "<id>",
     stripeSignature: "<value>",
@@ -511,18 +511,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { webhooksHandleStripeWebhook } from "flexprice-ts/funcs/webhooksHandleStripeWebhook.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await webhooksHandleStripeWebhook(flexPrice, {
+  const res = await webhooksHandleStripeWebhook(flexprice, {
     tenantId: "<id>",
     environmentId: "<id>",
     stripeSignature: "<value>",

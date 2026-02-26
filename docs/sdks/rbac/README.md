@@ -15,15 +15,15 @@ Use when you need to show or edit a single role (e.g. role detail page). Include
 
 <!-- UsageSnippet language="typescript" operationID="getRbacRole" method="get" path="/rbac/roles/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.rbac.getRbacRole({
+  const result = await flexprice.rbac.getRbacRole({
     id: "<id>",
   });
 
@@ -38,18 +38,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { rbacGetRBACRole } from "flexprice-ts/funcs/rbacGetRBACRole.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await rbacGetRBACRole(flexPrice, {
+  const res = await rbacGetRBACRole(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -90,15 +90,15 @@ Use when building role pickers or permission UIs. Returns all roles with permiss
 
 <!-- UsageSnippet language="typescript" operationID="listRbacRoles" method="get" path="/rbac/roles" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.rbac.listRbacRoles();
+  const result = await flexprice.rbac.listRbacRoles();
 
   console.log(result);
 }
@@ -111,18 +111,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { rbacListRBACRoles } from "flexprice-ts/funcs/rbacListRBACRoles.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await rbacListRBACRoles(flexPrice);
+  const res = await rbacListRBACRoles(flexprice);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);

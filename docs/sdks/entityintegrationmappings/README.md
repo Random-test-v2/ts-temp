@@ -15,15 +15,15 @@ Use when linking a FlexPrice entity to an external system (e.g. CRM or payment p
 
 <!-- UsageSnippet language="typescript" operationID="createEntityIntegrationMapping" method="post" path="/entity-integration-mappings" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.entityIntegrationMappings.createEntityIntegrationMapping({
+  const result = await flexprice.entityIntegrationMappings.createEntityIntegrationMapping({
     entityId: "<id>",
     entityType: "credit_note",
     providerEntityId: "<id>",
@@ -41,18 +41,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { entityIntegrationMappingsCreateEntityIntegrationMapping } from "flexprice-ts/funcs/entityIntegrationMappingsCreateEntityIntegrationMapping.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await entityIntegrationMappingsCreateEntityIntegrationMapping(flexPrice, {
+  const res = await entityIntegrationMappingsCreateEntityIntegrationMapping(flexprice, {
     entityId: "<id>",
     entityType: "credit_note",
     providerEntityId: "<id>",
@@ -96,15 +96,15 @@ Use when unlinking a FlexPrice entity from an external system or cleaning up sta
 
 <!-- UsageSnippet language="typescript" operationID="deleteEntityIntegrationMapping" method="delete" path="/entity-integration-mappings/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.entityIntegrationMappings.deleteEntityIntegrationMapping({
+  const result = await flexprice.entityIntegrationMappings.deleteEntityIntegrationMapping({
     id: "<id>",
   });
 
@@ -119,18 +119,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { entityIntegrationMappingsDeleteEntityIntegrationMapping } from "flexprice-ts/funcs/entityIntegrationMappingsDeleteEntityIntegrationMapping.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await entityIntegrationMappingsDeleteEntityIntegrationMapping(flexPrice, {
+  const res = await entityIntegrationMappingsDeleteEntityIntegrationMapping(flexprice, {
     id: "<id>",
   });
   if (res.ok) {

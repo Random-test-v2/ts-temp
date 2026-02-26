@@ -21,15 +21,15 @@ Use when attaching a feature (and its limit) to a plan or addon (e.g. "10 seats"
 
 <!-- UsageSnippet language="typescript" operationID="createEntitlement" method="post" path="/entitlements" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.entitlements.createEntitlement({
+  const result = await flexprice.entitlements.createEntitlement({
     featureId: "<id>",
     featureType: "metered",
   });
@@ -45,18 +45,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { entitlementsCreateEntitlement } from "flexprice-ts/funcs/entitlementsCreateEntitlement.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await entitlementsCreateEntitlement(flexPrice, {
+  const res = await entitlementsCreateEntitlement(flexprice, {
     featureId: "<id>",
     featureType: "metered",
   });
@@ -98,15 +98,15 @@ Use when attaching many features to a plan or addon at once (e.g. initial plan s
 
 <!-- UsageSnippet language="typescript" operationID="createEntitlementsBulk" method="post" path="/entitlements/bulk" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.entitlements.createEntitlementsBulk({
+  const result = await flexprice.entitlements.createEntitlementsBulk({
     items: [
       {
         featureId: "<id>",
@@ -126,18 +126,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { entitlementsCreateEntitlementsBulk } from "flexprice-ts/funcs/entitlementsCreateEntitlementsBulk.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await entitlementsCreateEntitlementsBulk(flexPrice, {
+  const res = await entitlementsCreateEntitlementsBulk(flexprice, {
     items: [
       {
         featureId: "<id>",
@@ -183,15 +183,15 @@ Use when removing a feature from a plan or addon (e.g. deprecating a capability)
 
 <!-- UsageSnippet language="typescript" operationID="deleteEntitlement" method="delete" path="/entitlements/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.entitlements.deleteEntitlement({
+  const result = await flexprice.entitlements.deleteEntitlement({
     id: "<id>",
   });
 
@@ -206,18 +206,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { entitlementsDeleteEntitlement } from "flexprice-ts/funcs/entitlementsDeleteEntitlement.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await entitlementsDeleteEntitlement(flexPrice, {
+  const res = await entitlementsDeleteEntitlement(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -258,15 +258,15 @@ Use when checking what features or limits an addon grants (e.g. for display or e
 
 <!-- UsageSnippet language="typescript" operationID="getAddonEntitlements" method="get" path="/addons/{id}/entitlements" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.entitlements.getAddonEntitlements({
+  const result = await flexprice.entitlements.getAddonEntitlements({
     id: "<id>",
   });
 
@@ -281,18 +281,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { entitlementsGetAddonEntitlements } from "flexprice-ts/funcs/entitlementsGetAddonEntitlements.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await entitlementsGetAddonEntitlements(flexPrice, {
+  const res = await entitlementsGetAddonEntitlements(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -333,15 +333,15 @@ Use when you need to load a single entitlement (e.g. to display or edit a featur
 
 <!-- UsageSnippet language="typescript" operationID="getEntitlement" method="get" path="/entitlements/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.entitlements.getEntitlement({
+  const result = await flexprice.entitlements.getEntitlement({
     id: "<id>",
   });
 
@@ -356,18 +356,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { entitlementsGetEntitlement } from "flexprice-ts/funcs/entitlementsGetEntitlement.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await entitlementsGetEntitlement(flexPrice, {
+  const res = await entitlementsGetEntitlement(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -408,15 +408,15 @@ Use when checking what a plan includes (e.g. feature list or limits for display 
 
 <!-- UsageSnippet language="typescript" operationID="getPlanEntitlements" method="get" path="/plans/{id}/entitlements" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.entitlements.getPlanEntitlements({
+  const result = await flexprice.entitlements.getPlanEntitlements({
     id: "<id>",
   });
 
@@ -431,18 +431,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { entitlementsGetPlanEntitlements } from "flexprice-ts/funcs/entitlementsGetPlanEntitlements.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await entitlementsGetPlanEntitlements(flexPrice, {
+  const res = await entitlementsGetPlanEntitlements(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -483,15 +483,15 @@ Use when listing or searching entitlements (e.g. plan editor or audit). Returns 
 
 <!-- UsageSnippet language="typescript" operationID="queryEntitlement" method="post" path="/entitlements/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.entitlements.queryEntitlement({});
+  const result = await flexprice.entitlements.queryEntitlement({});
 
   console.log(result);
 }
@@ -504,18 +504,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { entitlementsQueryEntitlement } from "flexprice-ts/funcs/entitlementsQueryEntitlement.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await entitlementsQueryEntitlement(flexPrice, {});
+  const res = await entitlementsQueryEntitlement(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -554,15 +554,15 @@ Use when changing an entitlement (e.g. increasing or decreasing a limit). Reques
 
 <!-- UsageSnippet language="typescript" operationID="updateEntitlement" method="put" path="/entitlements/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.entitlements.updateEntitlement({
+  const result = await flexprice.entitlements.updateEntitlement({
     id: "<id>",
     dtoUpdateEntitlementRequest: {},
   });
@@ -578,18 +578,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { entitlementsUpdateEntitlement } from "flexprice-ts/funcs/entitlementsUpdateEntitlement.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await entitlementsUpdateEntitlement(flexPrice, {
+  const res = await entitlementsUpdateEntitlement(flexprice, {
     id: "<id>",
     dtoUpdateEntitlementRequest: {},
   });

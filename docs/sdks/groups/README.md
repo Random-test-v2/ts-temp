@@ -17,15 +17,15 @@ Use when organizing entities into a group (e.g. for filtering prices or plans by
 
 <!-- UsageSnippet language="typescript" operationID="createGroup" method="post" path="/groups" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.groups.createGroup({
+  const result = await flexprice.groups.createGroup({
     entityType: "<value>",
     lookupKey: "<value>",
     name: "<value>",
@@ -42,18 +42,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { groupsCreateGroup } from "flexprice-ts/funcs/groupsCreateGroup.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await groupsCreateGroup(flexPrice, {
+  const res = await groupsCreateGroup(flexprice, {
     entityType: "<value>",
     lookupKey: "<value>",
     name: "<value>",
@@ -96,15 +96,15 @@ Use when removing a group and clearing its entity associations (e.g. retiring a 
 
 <!-- UsageSnippet language="typescript" operationID="deleteGroup" method="delete" path="/groups/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.groups.deleteGroup({
+  const result = await flexprice.groups.deleteGroup({
     id: "<id>",
   });
 
@@ -119,18 +119,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { groupsDeleteGroup } from "flexprice-ts/funcs/groupsDeleteGroup.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await groupsDeleteGroup(flexPrice, {
+  const res = await groupsDeleteGroup(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -171,15 +171,15 @@ Use when you need to load a single group (e.g. for display or to assign entities
 
 <!-- UsageSnippet language="typescript" operationID="getGroup" method="get" path="/groups/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.groups.getGroup({
+  const result = await flexprice.groups.getGroup({
     id: "<id>",
   });
 
@@ -194,18 +194,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { groupsGetGroup } from "flexprice-ts/funcs/groupsGetGroup.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await groupsGetGroup(flexPrice, {
+  const res = await groupsGetGroup(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -246,15 +246,15 @@ Use when listing or searching groups (e.g. admin catalog). Returns a paginated l
 
 <!-- UsageSnippet language="typescript" operationID="queryGroup" method="post" path="/groups/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.groups.queryGroup({});
+  const result = await flexprice.groups.queryGroup({});
 
   console.log(result);
 }
@@ -267,18 +267,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { groupsQueryGroup } from "flexprice-ts/funcs/groupsQueryGroup.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await groupsQueryGroup(flexPrice, {});
+  const res = await groupsQueryGroup(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);

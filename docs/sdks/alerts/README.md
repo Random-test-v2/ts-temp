@@ -14,15 +14,15 @@ Use when viewing or searching alert history (e.g. support triage or customer-fac
 
 <!-- UsageSnippet language="typescript" operationID="queryAlertLog" method="post" path="/alerts/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.alerts.queryAlertLog({});
+  const result = await flexprice.alerts.queryAlertLog({});
 
   console.log(result);
 }
@@ -35,18 +35,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { alertsQueryAlertLog } from "flexprice-ts/funcs/alertsQueryAlertLog.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await alertsQueryAlertLog(flexPrice, {});
+  const res = await alertsQueryAlertLog(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);

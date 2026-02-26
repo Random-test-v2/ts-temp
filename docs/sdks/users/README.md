@@ -16,15 +16,15 @@ Use when provisioning API access for automation, CI/CD pipelines, or headless in
 
 <!-- UsageSnippet language="typescript" operationID="createUser" method="post" path="/users" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.users.createUser({
+  const result = await flexprice.users.createUser({
     roles: [],
     type: "user",
   });
@@ -40,18 +40,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { usersCreateUser } from "flexprice-ts/funcs/usersCreateUser.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await usersCreateUser(flexPrice, {
+  const res = await usersCreateUser(flexprice, {
     roles: [],
     type: "user",
   });
@@ -93,15 +93,15 @@ Use to show the logged-in user's profile in the UI or to check permissions and r
 
 <!-- UsageSnippet language="typescript" operationID="getUserInfo" method="get" path="/users/me" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.users.getUserInfo();
+  const result = await flexprice.users.getUserInfo();
 
   console.log(result);
 }
@@ -114,18 +114,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { usersGetUserInfo } from "flexprice-ts/funcs/usersGetUserInfo.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await usersGetUserInfo(flexPrice);
+  const res = await usersGetUserInfo(flexprice);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -163,15 +163,15 @@ Use when listing or searching service accounts in an admin UI, or when auditing 
 
 <!-- UsageSnippet language="typescript" operationID="queryUser" method="post" path="/users/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.users.queryUser({});
+  const result = await flexprice.users.queryUser({});
 
   console.log(result);
 }
@@ -184,18 +184,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { usersQueryUser } from "flexprice-ts/funcs/usersQueryUser.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await usersQueryUser(flexPrice, {});
+  const res = await usersQueryUser(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);

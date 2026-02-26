@@ -19,15 +19,15 @@ Use when submitting a file or job for async processing (e.g. export or import). 
 
 <!-- UsageSnippet language="typescript" operationID="createTask" method="post" path="/tasks" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.tasks.createTask({
+  const result = await flexprice.tasks.createTask({
     entityType: "FEATURES",
     fileType: "JSON",
     fileUrl: "https://rural-typeface.org",
@@ -45,18 +45,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { tasksCreateTask } from "flexprice-ts/funcs/tasksCreateTask.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await tasksCreateTask(flexPrice, {
+  const res = await tasksCreateTask(flexprice, {
     entityType: "FEATURES",
     fileType: "JSON",
     fileUrl: "https://rural-typeface.org",
@@ -100,15 +100,15 @@ Use when letting a user download an exported file (e.g. report or data export). 
 
 <!-- UsageSnippet language="typescript" operationID="downloadTaskExport" method="get" path="/tasks/{id}/download" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.tasks.downloadTaskExport({
+  const result = await flexprice.tasks.downloadTaskExport({
     id: "<id>",
   });
 
@@ -123,18 +123,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { tasksDownloadTaskExport } from "flexprice-ts/funcs/tasksDownloadTaskExport.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await tasksDownloadTaskExport(flexPrice, {
+  const res = await tasksDownloadTaskExport(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -175,15 +175,15 @@ Use when checking task status or progress (e.g. polling after create). Returns t
 
 <!-- UsageSnippet language="typescript" operationID="getTask" method="get" path="/tasks/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.tasks.getTask({
+  const result = await flexprice.tasks.getTask({
     id: "<id>",
   });
 
@@ -198,18 +198,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { tasksGetTask } from "flexprice-ts/funcs/tasksGetTask.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await tasksGetTask(flexPrice, {
+  const res = await tasksGetTask(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -250,15 +250,15 @@ Use when fetching the outcome of a completed task (e.g. export URL or error mess
 
 <!-- UsageSnippet language="typescript" operationID="getTaskResult" method="get" path="/tasks/result" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.tasks.getTaskResult({
+  const result = await flexprice.tasks.getTaskResult({
     workflowId: "<id>",
   });
 
@@ -273,18 +273,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { tasksGetTaskResult } from "flexprice-ts/funcs/tasksGetTaskResult.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await tasksGetTaskResult(flexPrice, {
+  const res = await tasksGetTaskResult(flexprice, {
     workflowId: "<id>",
   });
   if (res.ok) {
@@ -325,15 +325,15 @@ Use when listing or searching async tasks (e.g. admin queue view). Returns list 
 
 <!-- UsageSnippet language="typescript" operationID="listTasks" method="get" path="/tasks" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.tasks.listTasks();
+  const result = await flexprice.tasks.listTasks();
 
   console.log(result);
 }
@@ -346,18 +346,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { tasksListTasks } from "flexprice-ts/funcs/tasksListTasks.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await tasksListTasks(flexPrice);
+  const res = await tasksListTasks(flexprice);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -396,15 +396,15 @@ Use when updating task status (e.g. marking complete or failed from a worker). T
 
 <!-- UsageSnippet language="typescript" operationID="updateTaskStatus" method="put" path="/tasks/{id}/status" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.tasks.updateTaskStatus({
+  const result = await flexprice.tasks.updateTaskStatus({
     id: "<id>",
     dtoUpdateTaskStatusRequest: {
       taskStatus: "PROCESSING",
@@ -422,18 +422,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { tasksUpdateTaskStatus } from "flexprice-ts/funcs/tasksUpdateTaskStatus.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await tasksUpdateTaskStatus(flexPrice, {
+  const res = await tasksUpdateTaskStatus(flexprice, {
     id: "<id>",
     dtoUpdateTaskStatusRequest: {
       taskStatus: "PROCESSING",

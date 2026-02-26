@@ -24,15 +24,15 @@ Use when giving a customer a prepaid or credit balance (e.g. prepaid plans or pr
 
 <!-- UsageSnippet language="typescript" operationID="createWallet" method="post" path="/wallets" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.wallets.createWallet({
+  const result = await flexprice.wallets.createWallet({
     currency: "Seychelles Rupee",
   });
 
@@ -47,18 +47,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { walletsCreateWallet } from "flexprice-ts/funcs/walletsCreateWallet.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await walletsCreateWallet(flexPrice, {
+  const res = await walletsCreateWallet(flexprice, {
     currency: "Seychelles Rupee",
   });
   if (res.ok) {
@@ -99,15 +99,15 @@ Use when resolving wallets by external customer id or lookup key (e.g. from your
 
 <!-- UsageSnippet language="typescript" operationID="getCustomerWallets" method="get" path="/customers/wallets" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.wallets.getCustomerWallets({});
+  const result = await flexprice.wallets.getCustomerWallets({});
 
   console.log(result);
 }
@@ -120,18 +120,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { walletsGetCustomerWallets } from "flexprice-ts/funcs/walletsGetCustomerWallets.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await walletsGetCustomerWallets(flexPrice, {});
+  const res = await walletsGetCustomerWallets(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -170,15 +170,15 @@ Use when you need to load a single wallet (e.g. for a balance or settings view).
 
 <!-- UsageSnippet language="typescript" operationID="getWallet" method="get" path="/wallets/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.wallets.getWallet({
+  const result = await flexprice.wallets.getWallet({
     id: "<id>",
   });
 
@@ -193,18 +193,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { walletsGetWallet } from "flexprice-ts/funcs/walletsGetWallet.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await walletsGetWallet(flexPrice, {
+  const res = await walletsGetWallet(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -245,15 +245,15 @@ Use when displaying or checking current wallet balance (e.g. before charging or 
 
 <!-- UsageSnippet language="typescript" operationID="getWalletBalance" method="get" path="/wallets/{id}/balance/real-time" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.wallets.getWalletBalance({
+  const result = await flexprice.wallets.getWalletBalance({
     id: "<id>",
   });
 
@@ -268,18 +268,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { walletsGetWalletBalance } from "flexprice-ts/funcs/walletsGetWalletBalance.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await walletsGetWalletBalance(flexPrice, {
+  const res = await walletsGetWalletBalance(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -320,15 +320,15 @@ Use when showing transaction history for a wallet (e.g. credit/debit log or audi
 
 <!-- UsageSnippet language="typescript" operationID="getWalletTransactions" method="get" path="/wallets/{id}/transactions" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.wallets.getWalletTransactions({
+  const result = await flexprice.wallets.getWalletTransactions({
     idPathParameter: "<value>",
   });
 
@@ -343,18 +343,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { walletsGetWalletTransactions } from "flexprice-ts/funcs/walletsGetWalletTransactions.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await walletsGetWalletTransactions(flexPrice, {
+  const res = await walletsGetWalletTransactions(flexprice, {
     idPathParameter: "<value>",
   });
   if (res.ok) {
@@ -395,15 +395,15 @@ Use when showing a customer's wallets (e.g. balance overview by currency or in a
 
 <!-- UsageSnippet language="typescript" operationID="getWalletsByCustomerId" method="get" path="/customers/{id}/wallets" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.wallets.getWalletsByCustomerId({
+  const result = await flexprice.wallets.getWalletsByCustomerId({
     id: "<id>",
   });
 
@@ -418,18 +418,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { walletsGetWalletsByCustomerId } from "flexprice-ts/funcs/walletsGetWalletsByCustomerId.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await walletsGetWalletsByCustomerId(flexPrice, {
+  const res = await walletsGetWalletsByCustomerId(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -470,15 +470,15 @@ Use when listing or searching wallets (e.g. admin view or reporting). Returns a 
 
 <!-- UsageSnippet language="typescript" operationID="queryWallet" method="post" path="/wallets/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.wallets.queryWallet({});
+  const result = await flexprice.wallets.queryWallet({});
 
   console.log(result);
 }
@@ -491,18 +491,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { walletsQueryWallet } from "flexprice-ts/funcs/walletsQueryWallet.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await walletsQueryWallet(flexPrice, {});
+  const res = await walletsQueryWallet(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -541,15 +541,15 @@ Use when searching or reporting on wallet transactions (e.g. cross-wallet histor
 
 <!-- UsageSnippet language="typescript" operationID="queryWalletTransaction" method="post" path="/wallets/transactions/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.wallets.queryWalletTransaction({});
+  const result = await flexprice.wallets.queryWalletTransaction({});
 
   console.log(result);
 }
@@ -562,18 +562,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { walletsQueryWalletTransaction } from "flexprice-ts/funcs/walletsQueryWalletTransaction.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await walletsQueryWalletTransaction(flexPrice, {});
+  const res = await walletsQueryWalletTransaction(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -612,15 +612,15 @@ Use when closing a customer wallet (e.g. churn or migration). Closes the wallet 
 
 <!-- UsageSnippet language="typescript" operationID="terminateWallet" method="post" path="/wallets/{id}/terminate" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.wallets.terminateWallet({
+  const result = await flexprice.wallets.terminateWallet({
     id: "<id>",
   });
 
@@ -635,18 +635,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { walletsTerminateWallet } from "flexprice-ts/funcs/walletsTerminateWallet.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await walletsTerminateWallet(flexPrice, {
+  const res = await walletsTerminateWallet(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -687,15 +687,15 @@ Use when adding funds to a wallet (e.g. top-up, refund, or manual credit). Suppo
 
 <!-- UsageSnippet language="typescript" operationID="topUpWallet" method="post" path="/wallets/{id}/top-up" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.wallets.topUpWallet({
+  const result = await flexprice.wallets.topUpWallet({
     id: "<id>",
     dtoTopUpWalletRequest: {
       transactionReason: "MANUAL_BALANCE_DEBIT",
@@ -713,18 +713,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { walletsTopUpWallet } from "flexprice-ts/funcs/walletsTopUpWallet.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await walletsTopUpWallet(flexPrice, {
+  const res = await walletsTopUpWallet(flexprice, {
     id: "<id>",
     dtoTopUpWalletRequest: {
       transactionReason: "MANUAL_BALANCE_DEBIT",
@@ -768,15 +768,15 @@ Use when changing wallet settings (e.g. enabling or updating auto top-up thresho
 
 <!-- UsageSnippet language="typescript" operationID="updateWallet" method="put" path="/wallets/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.wallets.updateWallet({
+  const result = await flexprice.wallets.updateWallet({
     id: "<id>",
     dtoUpdateWalletRequest: {},
   });
@@ -792,18 +792,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { walletsUpdateWallet } from "flexprice-ts/funcs/walletsUpdateWallet.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await walletsUpdateWallet(flexPrice, {
+  const res = await walletsUpdateWallet(flexprice, {
     id: "<id>",
     dtoUpdateWalletRequest: {},
   });

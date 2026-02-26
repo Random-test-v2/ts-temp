@@ -18,15 +18,15 @@ Use when giving a customer or plan credits (e.g. prepaid balance or promotional 
 
 <!-- UsageSnippet language="typescript" operationID="createCreditGrant" method="post" path="/creditgrants" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.creditGrants.createCreditGrant({
+  const result = await flexprice.creditGrants.createCreditGrant({
     cadence: "ONETIME",
     credits: "<value>",
     name: "<value>",
@@ -44,18 +44,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { creditGrantsCreateCreditGrant } from "flexprice-ts/funcs/creditGrantsCreateCreditGrant.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await creditGrantsCreateCreditGrant(flexPrice, {
+  const res = await creditGrantsCreateCreditGrant(flexprice, {
     cadence: "ONETIME",
     credits: "<value>",
     name: "<value>",
@@ -99,15 +99,15 @@ Use when removing or ending a credit grant (e.g. revoke promo or close prepaid).
 
 <!-- UsageSnippet language="typescript" operationID="deleteCreditGrant" method="delete" path="/creditgrants/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.creditGrants.deleteCreditGrant({
+  const result = await flexprice.creditGrants.deleteCreditGrant({
     id: "<id>",
   });
 
@@ -122,18 +122,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { creditGrantsDeleteCreditGrant } from "flexprice-ts/funcs/creditGrantsDeleteCreditGrant.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await creditGrantsDeleteCreditGrant(flexPrice, {
+  const res = await creditGrantsDeleteCreditGrant(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -174,15 +174,15 @@ Use when you need to load a single credit grant (e.g. for display or to check ba
 
 <!-- UsageSnippet language="typescript" operationID="getCreditGrant" method="get" path="/creditgrants/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.creditGrants.getCreditGrant({
+  const result = await flexprice.creditGrants.getCreditGrant({
     id: "<id>",
   });
 
@@ -197,18 +197,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { creditGrantsGetCreditGrant } from "flexprice-ts/funcs/creditGrantsGetCreditGrant.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await creditGrantsGetCreditGrant(flexPrice, {
+  const res = await creditGrantsGetCreditGrant(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -249,15 +249,15 @@ Use when listing credits attached to a plan (e.g. included prepaid or promo cred
 
 <!-- UsageSnippet language="typescript" operationID="getPlanCreditGrants" method="get" path="/plans/{id}/creditgrants" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.creditGrants.getPlanCreditGrants({
+  const result = await flexprice.creditGrants.getPlanCreditGrants({
     id: "<id>",
   });
 
@@ -272,18 +272,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { creditGrantsGetPlanCreditGrants } from "flexprice-ts/funcs/creditGrantsGetPlanCreditGrants.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await creditGrantsGetPlanCreditGrants(flexPrice, {
+  const res = await creditGrantsGetPlanCreditGrants(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -324,15 +324,15 @@ Use when changing a credit grant (e.g. amount or end date). Request body contain
 
 <!-- UsageSnippet language="typescript" operationID="updateCreditGrant" method="put" path="/creditgrants/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.creditGrants.updateCreditGrant({
+  const result = await flexprice.creditGrants.updateCreditGrant({
     id: "<id>",
     dtoUpdateCreditGrantRequest: {},
   });
@@ -348,18 +348,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { creditGrantsUpdateCreditGrant } from "flexprice-ts/funcs/creditGrantsUpdateCreditGrant.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await creditGrantsUpdateCreditGrant(flexPrice, {
+  const res = await creditGrantsUpdateCreditGrant(flexprice, {
     id: "<id>",
     dtoUpdateCreditGrantRequest: {},
   });

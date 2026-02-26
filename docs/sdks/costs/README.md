@@ -21,15 +21,15 @@ Use when setting up a new pricing configuration (e.g. a new product or region). 
 
 <!-- UsageSnippet language="typescript" operationID="createCostsheet" method="post" path="/costs" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.costs.createCostsheet({
+  const result = await flexprice.costs.createCostsheet({
     name: "<value>",
   });
 
@@ -44,18 +44,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { costsCreateCostsheet } from "flexprice-ts/funcs/costsCreateCostsheet.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await costsCreateCostsheet(flexPrice, {
+  const res = await costsCreateCostsheet(flexprice, {
     name: "<value>",
   });
   if (res.ok) {
@@ -96,15 +96,15 @@ Use when retiring a costsheet (e.g. end-of-life product). Soft-deletes; status s
 
 <!-- UsageSnippet language="typescript" operationID="deleteCostsheet" method="delete" path="/costs/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.costs.deleteCostsheet({
+  const result = await flexprice.costs.deleteCostsheet({
     id: "<id>",
   });
 
@@ -119,18 +119,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { costsDeleteCostsheet } from "flexprice-ts/funcs/costsDeleteCostsheet.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await costsDeleteCostsheet(flexPrice, {
+  const res = await costsDeleteCostsheet(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -171,15 +171,15 @@ Use when you need the tenant's default pricing configuration (e.g. for checkout 
 
 <!-- UsageSnippet language="typescript" operationID="getActiveCostsheet" method="get" path="/costs/active" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.costs.getActiveCostsheet();
+  const result = await flexprice.costs.getActiveCostsheet();
 
   console.log(result);
 }
@@ -192,18 +192,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { costsGetActiveCostsheet } from "flexprice-ts/funcs/costsGetActiveCostsheet.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await costsGetActiveCostsheet(flexPrice);
+  const res = await costsGetActiveCostsheet(flexprice);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -241,15 +241,15 @@ Use when you need to load a single costsheet (e.g. for editing or display). Supp
 
 <!-- UsageSnippet language="typescript" operationID="getCostsheet" method="get" path="/costs/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.costs.getCostsheet({
+  const result = await flexprice.costs.getCostsheet({
     id: "<id>",
   });
 
@@ -264,18 +264,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { costsGetCostsheet } from "flexprice-ts/funcs/costsGetCostsheet.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await costsGetCostsheet(flexPrice, {
+  const res = await costsGetCostsheet(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -316,15 +316,15 @@ Use when building dashboards or reports that need revenue vs cost, ROI, and marg
 
 <!-- UsageSnippet language="typescript" operationID="getDetailedCostAnalytics" method="post" path="/costs/analytics" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.costs.getDetailedCostAnalytics({});
+  const result = await flexprice.costs.getDetailedCostAnalytics({});
 
   console.log(result);
 }
@@ -337,18 +337,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { costsGetDetailedCostAnalytics } from "flexprice-ts/funcs/costsGetDetailedCostAnalytics.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await costsGetDetailedCostAnalytics(flexPrice, {});
+  const res = await costsGetDetailedCostAnalytics(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -387,15 +387,15 @@ Use when you need the same revenue/cost/ROI analytics but computed from the cost
 
 <!-- UsageSnippet language="typescript" operationID="getDetailedCostAnalyticsV2" method="post" path="/costs/analytics-v2" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.costs.getDetailedCostAnalyticsV2({});
+  const result = await flexprice.costs.getDetailedCostAnalyticsV2({});
 
   console.log(result);
 }
@@ -408,18 +408,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { costsGetDetailedCostAnalyticsV2 } from "flexprice-ts/funcs/costsGetDetailedCostAnalyticsV2.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await costsGetDetailedCostAnalyticsV2(flexPrice, {});
+  const res = await costsGetDetailedCostAnalyticsV2(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -458,15 +458,15 @@ Use when listing or searching costsheets (e.g. admin catalog). Returns a paginat
 
 <!-- UsageSnippet language="typescript" operationID="queryCostsheet" method="post" path="/costs/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.costs.queryCostsheet({});
+  const result = await flexprice.costs.queryCostsheet({});
 
   console.log(result);
 }
@@ -479,18 +479,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { costsQueryCostsheet } from "flexprice-ts/funcs/costsQueryCostsheet.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await costsQueryCostsheet(flexPrice, {});
+  const res = await costsQueryCostsheet(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -529,15 +529,15 @@ Use when changing costsheet name or metadata.
 
 <!-- UsageSnippet language="typescript" operationID="updateCostsheet" method="put" path="/costs/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.costs.updateCostsheet({
+  const result = await flexprice.costs.updateCostsheet({
     id: "<id>",
     dtoUpdateCostsheetRequest: {},
   });
@@ -553,18 +553,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { costsUpdateCostsheet } from "flexprice-ts/funcs/costsUpdateCostsheet.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await costsUpdateCostsheet(flexPrice, {
+  const res = await costsUpdateCostsheet(flexprice, {
     id: "<id>",
     dtoUpdateCostsheetRequest: {},
   });

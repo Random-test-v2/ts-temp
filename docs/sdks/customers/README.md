@@ -22,15 +22,15 @@ Use when onboarding a new billing customer (e.g. sign-up or CRM sync). Ideal for
 
 <!-- UsageSnippet language="typescript" operationID="createCustomer" method="post" path="/customers" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.customers.createCustomer({
+  const result = await flexprice.customers.createCustomer({
     externalId: "<id>",
   });
 
@@ -45,18 +45,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { customersCreateCustomer } from "flexprice-ts/funcs/customersCreateCustomer.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await customersCreateCustomer(flexPrice, {
+  const res = await customersCreateCustomer(flexprice, {
     externalId: "<id>",
   });
   if (res.ok) {
@@ -97,15 +97,15 @@ Use when removing a customer (e.g. GDPR or churn). Returns 204 No Content on suc
 
 <!-- UsageSnippet language="typescript" operationID="deleteCustomer" method="delete" path="/customers/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.customers.deleteCustomer({
+  const result = await flexprice.customers.deleteCustomer({
     id: "<id>",
   });
 
@@ -120,18 +120,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { customersDeleteCustomer } from "flexprice-ts/funcs/customersDeleteCustomer.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await customersDeleteCustomer(flexPrice, {
+  const res = await customersDeleteCustomer(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -172,15 +172,15 @@ Use when you need to load a single customer (e.g. for a billing portal or to att
 
 <!-- UsageSnippet language="typescript" operationID="getCustomer" method="get" path="/customers/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.customers.getCustomer({
+  const result = await flexprice.customers.getCustomer({
     id: "<id>",
   });
 
@@ -195,18 +195,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { customersGetCustomer } from "flexprice-ts/funcs/customersGetCustomer.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await customersGetCustomer(flexPrice, {
+  const res = await customersGetCustomer(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -247,15 +247,15 @@ Use when resolving a customer by your app's id (e.g. from your user table). Idea
 
 <!-- UsageSnippet language="typescript" operationID="getCustomerByExternalId" method="get" path="/customers/external/{external_id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.customers.getCustomerByExternalId({
+  const result = await flexprice.customers.getCustomerByExternalId({
     externalId: "<id>",
   });
 
@@ -270,18 +270,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { customersGetCustomerByExternalId } from "flexprice-ts/funcs/customersGetCustomerByExternalId.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await customersGetCustomerByExternalId(flexPrice, {
+  const res = await customersGetCustomerByExternalId(flexprice, {
     externalId: "<id>",
   });
   if (res.ok) {
@@ -322,15 +322,15 @@ Use when checking what a customer can access (e.g. feature gating or usage limit
 
 <!-- UsageSnippet language="typescript" operationID="getCustomerEntitlements" method="get" path="/customers/{id}/entitlements" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.customers.getCustomerEntitlements({
+  const result = await flexprice.customers.getCustomerEntitlements({
     id: "<id>",
   });
 
@@ -345,18 +345,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { customersGetCustomerEntitlements } from "flexprice-ts/funcs/customersGetCustomerEntitlements.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await customersGetCustomerEntitlements(flexPrice, {
+  const res = await customersGetCustomerEntitlements(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -397,15 +397,15 @@ Use when showing upcoming or pending credits for a customer (e.g. in a portal or
 
 <!-- UsageSnippet language="typescript" operationID="getCustomerUpcomingGrants" method="get" path="/customers/{id}/grants/upcoming" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.customers.getCustomerUpcomingGrants({
+  const result = await flexprice.customers.getCustomerUpcomingGrants({
     id: "<id>",
   });
 
@@ -420,18 +420,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { customersGetCustomerUpcomingGrants } from "flexprice-ts/funcs/customersGetCustomerUpcomingGrants.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await customersGetCustomerUpcomingGrants(flexPrice, {
+  const res = await customersGetCustomerUpcomingGrants(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -472,15 +472,15 @@ Use when showing a customer's usage (e.g. portal or overage alerts). Identify by
 
 <!-- UsageSnippet language="typescript" operationID="getCustomerUsageSummary" method="get" path="/customers/usage" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.customers.getCustomerUsageSummary();
+  const result = await flexprice.customers.getCustomerUsageSummary();
 
   console.log(result);
 }
@@ -493,18 +493,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { customersGetCustomerUsageSummary } from "flexprice-ts/funcs/customersGetCustomerUsageSummary.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await customersGetCustomerUsageSummary(flexPrice);
+  const res = await customersGetCustomerUsageSummary(flexprice);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -543,15 +543,15 @@ Use when listing or searching customers (e.g. admin CRM or reporting). Returns a
 
 <!-- UsageSnippet language="typescript" operationID="queryCustomer" method="post" path="/customers/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.customers.queryCustomer({});
+  const result = await flexprice.customers.queryCustomer({});
 
   console.log(result);
 }
@@ -564,18 +564,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { customersQueryCustomer } from "flexprice-ts/funcs/customersQueryCustomer.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await customersQueryCustomer(flexPrice, {});
+  const res = await customersQueryCustomer(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -614,15 +614,15 @@ Use when updating customer details (e.g. name, email, or metadata). Identify by 
 
 <!-- UsageSnippet language="typescript" operationID="updateCustomer" method="put" path="/customers" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.customers.updateCustomer({
+  const result = await flexprice.customers.updateCustomer({
     dtoUpdateCustomerRequest: {},
   });
 
@@ -637,18 +637,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { customersUpdateCustomer } from "flexprice-ts/funcs/customersUpdateCustomer.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await customersUpdateCustomer(flexPrice, {
+  const res = await customersUpdateCustomer(flexprice, {
     dtoUpdateCustomerRequest: {},
   });
   if (res.ok) {

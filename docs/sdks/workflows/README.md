@@ -14,15 +14,15 @@ Use when listing or auditing workflow runs (e.g. ops dashboard or debugging). Re
 
 <!-- UsageSnippet language="typescript" operationID="queryWorkflow" method="post" path="/workflows/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.workflows.queryWorkflow({});
+  const result = await flexprice.workflows.queryWorkflow({});
 
   console.log(result);
 }
@@ -35,18 +35,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { workflowsQueryWorkflow } from "flexprice-ts/funcs/workflowsQueryWorkflow.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await workflowsQueryWorkflow(flexPrice, {});
+  const res = await workflowsQueryWorkflow(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);

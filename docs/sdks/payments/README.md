@@ -19,15 +19,15 @@ Use when recording a payment against an invoice (e.g. after receiving funds via 
 
 <!-- UsageSnippet language="typescript" operationID="createPayment" method="post" path="/payments" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.payments.createPayment({
+  const result = await flexprice.payments.createPayment({
     amount: "883.46",
     currency: "CFP Franc",
     destinationId: "<id>",
@@ -46,18 +46,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { paymentsCreatePayment } from "flexprice-ts/funcs/paymentsCreatePayment.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await paymentsCreatePayment(flexPrice, {
+  const res = await paymentsCreatePayment(flexprice, {
     amount: "883.46",
     currency: "CFP Franc",
     destinationId: "<id>",
@@ -102,15 +102,15 @@ Use when removing or voiding a payment record (e.g. correcting erroneous entries
 
 <!-- UsageSnippet language="typescript" operationID="deletePayment" method="delete" path="/payments/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.payments.deletePayment({
+  const result = await flexprice.payments.deletePayment({
     id: "<id>",
   });
 
@@ -125,18 +125,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { paymentsDeletePayment } from "flexprice-ts/funcs/paymentsDeletePayment.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await paymentsDeletePayment(flexPrice, {
+  const res = await paymentsDeletePayment(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -177,15 +177,15 @@ Use when you need to load a single payment (e.g. for a receipt view or reconcili
 
 <!-- UsageSnippet language="typescript" operationID="getPayment" method="get" path="/payments/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.payments.getPayment({
+  const result = await flexprice.payments.getPayment({
     id: "<id>",
   });
 
@@ -200,18 +200,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { paymentsGetPayment } from "flexprice-ts/funcs/paymentsGetPayment.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await paymentsGetPayment(flexPrice, {
+  const res = await paymentsGetPayment(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -252,15 +252,15 @@ Use when listing or searching payments (e.g. reconciliation UI or customer payme
 
 <!-- UsageSnippet language="typescript" operationID="listPayments" method="get" path="/payments" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.payments.listPayments();
+  const result = await flexprice.payments.listPayments();
 
   console.log(result);
 }
@@ -273,18 +273,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { paymentsListPayments } from "flexprice-ts/funcs/paymentsListPayments.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await paymentsListPayments(flexPrice);
+  const res = await paymentsListPayments(flexprice);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -323,15 +323,15 @@ Use when you need to charge or process a payment (e.g. trigger the payment provi
 
 <!-- UsageSnippet language="typescript" operationID="processPayment" method="post" path="/payments/{id}/process" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.payments.processPayment({
+  const result = await flexprice.payments.processPayment({
     id: "<id>",
   });
 
@@ -346,18 +346,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { paymentsProcessPayment } from "flexprice-ts/funcs/paymentsProcessPayment.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await paymentsProcessPayment(flexPrice, {
+  const res = await paymentsProcessPayment(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -398,15 +398,15 @@ Use when updating payment status or metadata (e.g. after reconciliation or addin
 
 <!-- UsageSnippet language="typescript" operationID="updatePayment" method="put" path="/payments/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.payments.updatePayment({
+  const result = await flexprice.payments.updatePayment({
     id: "<id>",
     dtoUpdatePaymentRequest: {},
   });
@@ -422,18 +422,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { paymentsUpdatePayment } from "flexprice-ts/funcs/paymentsUpdatePayment.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await paymentsUpdatePayment(flexPrice, {
+  const res = await paymentsUpdatePayment(flexprice, {
     id: "<id>",
     dtoUpdatePaymentRequest: {},
   });

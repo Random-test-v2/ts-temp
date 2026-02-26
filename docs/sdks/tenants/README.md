@@ -16,15 +16,15 @@ Use when showing the current tenant's billing usage (e.g. admin billing page or 
 
 <!-- UsageSnippet language="typescript" operationID="getTenantBillingUsage" method="get" path="/tenant/billing" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.tenants.getTenantBillingUsage();
+  const result = await flexprice.tenants.getTenantBillingUsage();
 
   console.log(result);
 }
@@ -37,18 +37,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { tenantsGetTenantBillingUsage } from "flexprice-ts/funcs/tenantsGetTenantBillingUsage.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await tenantsGetTenantBillingUsage(flexPrice);
+  const res = await tenantsGetTenantBillingUsage(flexprice);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -86,15 +86,15 @@ Get tenant by ID
 
 <!-- UsageSnippet language="typescript" operationID="getTenantById" method="get" path="/tenants/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.tenants.getTenantById({
+  const result = await flexprice.tenants.getTenantById({
     id: "<id>",
   });
 
@@ -109,18 +109,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { tenantsGetTenantById } from "flexprice-ts/funcs/tenantsGetTenantById.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await tenantsGetTenantById(flexPrice, {
+  const res = await tenantsGetTenantById(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -161,15 +161,15 @@ Use when changing tenant details (e.g. name or billing info). Request body conta
 
 <!-- UsageSnippet language="typescript" operationID="updateTenant" method="put" path="/tenants/update" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.tenants.updateTenant({});
+  const result = await flexprice.tenants.updateTenant({});
 
   console.log(result);
 }
@@ -182,18 +182,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { tenantsUpdateTenant } from "flexprice-ts/funcs/tenantsUpdateTenant.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await tenantsUpdateTenant(flexPrice, {});
+  const res = await tenantsUpdateTenant(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);

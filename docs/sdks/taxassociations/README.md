@@ -18,15 +18,15 @@ Use when linking a tax rate to an entity (e.g. customer, product, or region) so 
 
 <!-- UsageSnippet language="typescript" operationID="createTaxAssociation" method="post" path="/taxes/associations" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.taxAssociations.createTaxAssociation({
+  const result = await flexprice.taxAssociations.createTaxAssociation({
     entityId: "<id>",
     entityType: "customer",
     taxRateCode: "<value>",
@@ -43,18 +43,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { taxAssociationsCreateTaxAssociation } from "flexprice-ts/funcs/taxAssociationsCreateTaxAssociation.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await taxAssociationsCreateTaxAssociation(flexPrice, {
+  const res = await taxAssociationsCreateTaxAssociation(flexprice, {
     entityId: "<id>",
     entityType: "customer",
     taxRateCode: "<value>",
@@ -97,15 +97,15 @@ Use when removing a tax association (e.g. entity no longer subject to that rate)
 
 <!-- UsageSnippet language="typescript" operationID="deleteTaxAssociation" method="delete" path="/taxes/associations/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.taxAssociations.deleteTaxAssociation({
+  const result = await flexprice.taxAssociations.deleteTaxAssociation({
     id: "<id>",
   });
 
@@ -120,18 +120,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { taxAssociationsDeleteTaxAssociation } from "flexprice-ts/funcs/taxAssociationsDeleteTaxAssociation.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await taxAssociationsDeleteTaxAssociation(flexPrice, {
+  const res = await taxAssociationsDeleteTaxAssociation(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -172,15 +172,15 @@ Use when you need to load a single tax association (e.g. for display or editing)
 
 <!-- UsageSnippet language="typescript" operationID="getTaxAssociation" method="get" path="/taxes/associations/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.taxAssociations.getTaxAssociation({
+  const result = await flexprice.taxAssociations.getTaxAssociation({
     id: "<id>",
   });
 
@@ -195,18 +195,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { taxAssociationsGetTaxAssociation } from "flexprice-ts/funcs/taxAssociationsGetTaxAssociation.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await taxAssociationsGetTaxAssociation(flexPrice, {
+  const res = await taxAssociationsGetTaxAssociation(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -247,15 +247,15 @@ Use when listing tax associations (e.g. tax config or audit). Returns list with 
 
 <!-- UsageSnippet language="typescript" operationID="listTaxAssociations" method="get" path="/taxes/associations" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.taxAssociations.listTaxAssociations();
+  const result = await flexprice.taxAssociations.listTaxAssociations();
 
   console.log(result);
 }
@@ -268,18 +268,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { taxAssociationsListTaxAssociations } from "flexprice-ts/funcs/taxAssociationsListTaxAssociations.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await taxAssociationsListTaxAssociations(flexPrice);
+  const res = await taxAssociationsListTaxAssociations(flexprice);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -318,15 +318,15 @@ Use when changing a tax association (e.g. switch rate or entity). Request body c
 
 <!-- UsageSnippet language="typescript" operationID="updateTaxAssociation" method="put" path="/taxes/associations/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.taxAssociations.updateTaxAssociation({
+  const result = await flexprice.taxAssociations.updateTaxAssociation({
     id: "<id>",
     dtoTaxAssociationUpdateRequest: {},
   });
@@ -342,18 +342,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { taxAssociationsUpdateTaxAssociation } from "flexprice-ts/funcs/taxAssociationsUpdateTaxAssociation.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await taxAssociationsUpdateTaxAssociation(flexPrice, {
+  const res = await taxAssociationsUpdateTaxAssociation(flexprice, {
     id: "<id>",
     dtoTaxAssociationUpdateRequest: {},
   });

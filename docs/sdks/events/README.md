@@ -21,15 +21,15 @@ Use when debugging a specific event (e.g. why it failed or how it was aggregated
 
 <!-- UsageSnippet language="typescript" operationID="getEvent" method="get" path="/events/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.events.getEvent({
+  const result = await flexprice.events.getEvent({
     id: "<id>",
   });
 
@@ -44,18 +44,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { eventsGetEvent } from "flexprice-ts/funcs/eventsGetEvent.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await eventsGetEvent(flexPrice, {
+  const res = await eventsGetEvent(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -96,15 +96,15 @@ Use when fetching Hugging Face inference usage or billing data (e.g. for HF-spec
 
 <!-- UsageSnippet language="typescript" operationID="getHuggingfaceInferenceData" method="post" path="/events/huggingface-inference" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.events.getHuggingfaceInferenceData();
+  const result = await flexprice.events.getHuggingfaceInferenceData();
 
   console.log(result);
 }
@@ -117,18 +117,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { eventsGetHuggingfaceInferenceData } from "flexprice-ts/funcs/eventsGetHuggingfaceInferenceData.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await eventsGetHuggingfaceInferenceData(flexPrice);
+  const res = await eventsGetHuggingfaceInferenceData(flexprice);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -166,15 +166,15 @@ Use when building analytics views (e.g. usage by feature or customer over time).
 
 <!-- UsageSnippet language="typescript" operationID="getUsageAnalytics" method="post" path="/events/analytics" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.events.getUsageAnalytics({
+  const result = await flexprice.events.getUsageAnalytics({
     externalCustomerId: "<id>",
   });
 
@@ -189,18 +189,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { eventsGetUsageAnalytics } from "flexprice-ts/funcs/eventsGetUsageAnalytics.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await eventsGetUsageAnalytics(flexPrice, {
+  const res = await eventsGetUsageAnalytics(flexprice, {
     externalCustomerId: "<id>",
   });
   if (res.ok) {
@@ -241,15 +241,15 @@ Use when showing usage for a specific meter (e.g. dashboard or overage check). S
 
 <!-- UsageSnippet language="typescript" operationID="getUsageByMeter" method="post" path="/events/usage/meter" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.events.getUsageByMeter({
+  const result = await flexprice.events.getUsageByMeter({
     billingAnchor: "2024-03-05T14:30:45Z",
     customerId: "customer456",
     endTime: "2024-12-09T00:00:00Z",
@@ -269,18 +269,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { eventsGetUsageByMeter } from "flexprice-ts/funcs/eventsGetUsageByMeter.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await eventsGetUsageByMeter(flexPrice, {
+  const res = await eventsGetUsageByMeter(flexprice, {
     billingAnchor: "2024-03-05T14:30:45Z",
     customerId: "customer456",
     endTime: "2024-12-09T00:00:00Z",
@@ -326,15 +326,15 @@ Use when building usage reports or dashboards across events. Supports filters an
 
 <!-- UsageSnippet language="typescript" operationID="getUsageStatistics" method="post" path="/events/usage" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.events.getUsageStatistics({
+  const result = await flexprice.events.getUsageStatistics({
     aggregationType: "COUNT_UNIQUE",
     billingAnchor: "2024-03-05T14:30:45.123456789Z",
     customerId: "customer456",
@@ -356,18 +356,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { eventsGetUsageStatistics } from "flexprice-ts/funcs/eventsGetUsageStatistics.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await eventsGetUsageStatistics(flexPrice, {
+  const res = await eventsGetUsageStatistics(flexprice, {
     aggregationType: "COUNT_UNIQUE",
     billingAnchor: "2024-03-05T14:30:45.123456789Z",
     customerId: "customer456",
@@ -415,15 +415,15 @@ Use when sending a single usage event from your app (e.g. one API call or one GB
 
 <!-- UsageSnippet language="typescript" operationID="ingestEvent" method="post" path="/events" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.events.ingestEvent({
+  const result = await flexprice.events.ingestEvent({
     customerId: "customer456",
     eventId: "event123",
     eventName: "api_request",
@@ -447,18 +447,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { eventsIngestEvent } from "flexprice-ts/funcs/eventsIngestEvent.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await eventsIngestEvent(flexPrice, {
+  const res = await eventsIngestEvent(flexprice, {
     customerId: "customer456",
     eventId: "event123",
     eventName: "api_request",
@@ -508,15 +508,15 @@ Use when batching usage events (e.g. backfill or high-volume ingestion). More ef
 
 <!-- UsageSnippet language="typescript" operationID="ingestEventsBulk" method="post" path="/events/bulk" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.events.ingestEventsBulk({
+  const result = await flexprice.events.ingestEventsBulk({
     events: [],
   });
 
@@ -531,18 +531,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { eventsIngestEventsBulk } from "flexprice-ts/funcs/eventsIngestEventsBulk.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await eventsIngestEventsBulk(flexPrice, {
+  const res = await eventsIngestEventsBulk(flexprice, {
     events: [],
   });
   if (res.ok) {
@@ -583,15 +583,15 @@ Use when debugging ingestion or exporting raw event data (e.g. support or audit)
 
 <!-- UsageSnippet language="typescript" operationID="listRawEvents" method="post" path="/events/query" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.events.listRawEvents({
+  const result = await flexprice.events.listRawEvents({
     endTime: "2024-12-09T00:00:00Z",
     order: "desc",
     sort: "timestamp",
@@ -609,18 +609,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { eventsListRawEvents } from "flexprice-ts/funcs/eventsListRawEvents.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await eventsListRawEvents(flexPrice, {
+  const res = await eventsListRawEvents(flexprice, {
     endTime: "2024-12-09T00:00:00Z",
     order: "desc",
     sort: "timestamp",

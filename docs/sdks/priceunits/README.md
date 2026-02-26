@@ -20,15 +20,15 @@ Use when defining a new unit of measure for pricing (e.g. GB, API call, seat). I
 
 <!-- UsageSnippet language="typescript" operationID="createPriceUnit" method="post" path="/prices/units" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.priceUnits.createPriceUnit({
+  const result = await flexprice.priceUnits.createPriceUnit({
     baseCurrency: "<value>",
     code: "<value>",
     conversionRate: "<value>",
@@ -47,18 +47,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { priceUnitsCreatePriceUnit } from "flexprice-ts/funcs/priceUnitsCreatePriceUnit.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await priceUnitsCreatePriceUnit(flexPrice, {
+  const res = await priceUnitsCreatePriceUnit(flexprice, {
     baseCurrency: "<value>",
     code: "<value>",
     conversionRate: "<value>",
@@ -103,15 +103,15 @@ Use when removing a price unit that is no longer needed. Fails if any price refe
 
 <!-- UsageSnippet language="typescript" operationID="deletePriceUnit" method="delete" path="/prices/units/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.priceUnits.deletePriceUnit({
+  const result = await flexprice.priceUnits.deletePriceUnit({
     id: "<id>",
   });
 
@@ -126,18 +126,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { priceUnitsDeletePriceUnit } from "flexprice-ts/funcs/priceUnitsDeletePriceUnit.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await priceUnitsDeletePriceUnit(flexPrice, {
+  const res = await priceUnitsDeletePriceUnit(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -178,15 +178,15 @@ Use when you need to load a single price unit (e.g. for display or when creating
 
 <!-- UsageSnippet language="typescript" operationID="getPriceUnit" method="get" path="/prices/units/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.priceUnits.getPriceUnit({
+  const result = await flexprice.priceUnits.getPriceUnit({
     id: "<id>",
   });
 
@@ -201,18 +201,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { priceUnitsGetPriceUnit } from "flexprice-ts/funcs/priceUnitsGetPriceUnit.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await priceUnitsGetPriceUnit(flexPrice, {
+  const res = await priceUnitsGetPriceUnit(flexprice, {
     id: "<id>",
   });
   if (res.ok) {
@@ -253,15 +253,15 @@ Use when resolving a price unit by code (e.g. from an external catalog or config
 
 <!-- UsageSnippet language="typescript" operationID="getPriceUnitByCode" method="get" path="/prices/units/code/{code}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.priceUnits.getPriceUnitByCode({
+  const result = await flexprice.priceUnits.getPriceUnitByCode({
     code: "<value>",
   });
 
@@ -276,18 +276,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { priceUnitsGetPriceUnitByCode } from "flexprice-ts/funcs/priceUnitsGetPriceUnitByCode.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await priceUnitsGetPriceUnitByCode(flexPrice, {
+  const res = await priceUnitsGetPriceUnitByCode(flexprice, {
     code: "<value>",
   });
   if (res.ok) {
@@ -328,15 +328,15 @@ Use when listing price units (e.g. in a catalog or when creating prices). Return
 
 <!-- UsageSnippet language="typescript" operationID="listPriceUnits" method="get" path="/prices/units" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.priceUnits.listPriceUnits({});
+  const result = await flexprice.priceUnits.listPriceUnits({});
 
   console.log(result);
 }
@@ -349,18 +349,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { priceUnitsListPriceUnits } from "flexprice-ts/funcs/priceUnitsListPriceUnits.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await priceUnitsListPriceUnits(flexPrice, {});
+  const res = await priceUnitsListPriceUnits(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -399,15 +399,15 @@ Use when searching or listing price units (e.g. admin catalog). Returns a pagina
 
 <!-- UsageSnippet language="typescript" operationID="queryPriceUnit" method="post" path="/prices/units/search" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.priceUnits.queryPriceUnit({});
+  const result = await flexprice.priceUnits.queryPriceUnit({});
 
   console.log(result);
 }
@@ -420,18 +420,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { priceUnitsQueryPriceUnit } from "flexprice-ts/funcs/priceUnitsQueryPriceUnit.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await priceUnitsQueryPriceUnit(flexPrice, {});
+  const res = await priceUnitsQueryPriceUnit(flexprice, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -470,15 +470,15 @@ Use when renaming or updating metadata for a price unit. Code is immutable once 
 
 <!-- UsageSnippet language="typescript" operationID="updatePriceUnit" method="put" path="/prices/units/{id}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { Flexprice } from "flexprice-ts";
 
-const flexPrice = new FlexPrice({
+const flexprice = new Flexprice({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.priceUnits.updatePriceUnit({
+  const result = await flexprice.priceUnits.updatePriceUnit({
     id: "<id>",
     dtoUpdatePriceUnitRequest: {},
   });
@@ -494,18 +494,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
+import { FlexpriceCore } from "flexprice-ts/core.js";
 import { priceUnitsUpdatePriceUnit } from "flexprice-ts/funcs/priceUnitsUpdatePriceUnit.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `FlexpriceCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const flexprice = new FlexpriceCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await priceUnitsUpdatePriceUnit(flexPrice, {
+  const res = await priceUnitsUpdatePriceUnit(flexprice, {
     id: "<id>",
     dtoUpdatePriceUnitRequest: {},
   });

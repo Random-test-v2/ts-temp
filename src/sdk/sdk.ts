@@ -35,7 +35,7 @@ import { Wallets } from "./wallets.js";
 import { Webhooks } from "./webhooks.js";
 import { Workflows } from "./workflows.js";
 
-export class FlexPrice extends ClientSDK {
+export class Flexprice extends ClientSDK {
   private _addons?: Addons;
   get addons(): Addons {
     return (this._addons ??= new Addons(this._options));
