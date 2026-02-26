@@ -5,21 +5,21 @@
 import dotenv from "dotenv";
 dotenv.config();
 /**
- * Example usage of the flexprice-ts SDK
+ * Example usage of the openapi SDK
  *
  * To run this example from the examples directory:
  * npm run build && npx tsx addonsCreateAddon.example.ts
  */
 
-import { FlexPrice } from "flexprice-ts";
+import { SDK } from "openapi";
 
-const flexPrice = new FlexPrice({
+const sdk = new SDK({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function main() {
-  const result = await flexPrice.addons.createAddon({
+  const result = await sdk.addons.createAddon({
     lookupKey: "<value>",
     name: "<value>",
     type: "multiple_instance",

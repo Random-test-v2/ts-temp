@@ -4,10 +4,87 @@
 
 ### Available Operations
 
-* [createOrUpdateIntegration](#createorupdateintegration) - Create or update an integration
-* [deleteIntegration](#deleteintegration) - Delete an integration
 * [getIntegration](#getintegration) - Get integration details
+* [createOrUpdateIntegration](#createorupdateintegration) - Create or update an integration
 * [listLinkedIntegrations](#listlinkedintegrations) - List linked integrations
+* [deleteIntegration](#deleteintegration) - Delete an integration
+
+## getIntegration
+
+Use when you need to check or display integration config (e.g. which provider is linked). Sensitive values may be redacted.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="getIntegration" method="get" path="/secrets/integrations/by-provider/{provider}" -->
+```typescript
+import { SDK } from "openapi";
+
+const sdk = new SDK({
+  serverURL: "https://api.example.com",
+  apiKeyAuth: "<YOUR_API_KEY_HERE>",
+});
+
+async function run() {
+  const result = await sdk.integrations.getIntegration({
+    provider: "<value>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { SDKCore } from "openapi/core.js";
+import { integrationsGetIntegration } from "openapi/funcs/integrations-get-integration.js";
+
+// Use `SDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const sdk = new SDKCore({
+  serverURL: "https://api.example.com",
+  apiKeyAuth: "<YOUR_API_KEY_HERE>",
+});
+
+async function run() {
+  const res = await integrationsGetIntegration(sdk, {
+    provider: "<value>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("integrationsGetIntegration failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetIntegrationRequest](../../models/operations/get-integration-request.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[models.DtoSecretResponse](../../models/dto-secret-response.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ErrorsErrorResponse | 404                        | application/json           |
+| errors.ErrorsErrorResponse | 500                        | application/json           |
+| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
 
 ## createOrUpdateIntegration
 
@@ -17,17 +94,17 @@ Use when storing or updating credentials for an external integration (e.g. Strip
 
 <!-- UsageSnippet language="typescript" operationID="createOrUpdateIntegration" method="post" path="/secrets/integrations/create/{provider}" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { SDK } from "openapi";
 
-const flexPrice = new FlexPrice({
+const sdk = new SDK({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.integrations.createOrUpdateIntegration({
+  const result = await sdk.integrations.createOrUpdateIntegration({
     provider: "<value>",
-    dtoCreateIntegrationRequest: {
+    body: {
       credentials: {
         "key": "<value>",
       },
@@ -47,20 +124,20 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
-import { integrationsCreateOrUpdateIntegration } from "flexprice-ts/funcs/integrationsCreateOrUpdateIntegration.js";
+import { SDKCore } from "openapi/core.js";
+import { integrationsCreateOrUpdateIntegration } from "openapi/funcs/integrations-create-or-update-integration.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `SDKCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const sdk = new SDKCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await integrationsCreateOrUpdateIntegration(flexPrice, {
+  const res = await integrationsCreateOrUpdateIntegration(sdk, {
     provider: "<value>",
-    dtoCreateIntegrationRequest: {
+    body: {
       credentials: {
         "key": "<value>",
       },
@@ -83,170 +160,22 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CreateOrUpdateIntegrationRequest](../../sdk/models/operations/createorupdateintegrationrequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CreateOrUpdateIntegrationRequest](../../models/operations/create-or-update-integration-request.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.CreateOrUpdateIntegrationResponse](../../sdk/models/operations/createorupdateintegrationresponse.md)\>**
+**Promise\<[models.DtoSecretResponse](../../models/dto-secret-response.md)\>**
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4XX, 5XX        | \*/\*           |
-
-## deleteIntegration
-
-Use when disconnecting an integration (e.g. switching provider or removing OAuth). Deletes stored credentials.
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="deleteIntegration" method="delete" path="/secrets/integrations/{id}" -->
-```typescript
-import { FlexPrice } from "flexprice-ts";
-
-const flexPrice = new FlexPrice({
-  serverURL: "https://api.example.com",
-  apiKeyAuth: "<YOUR_API_KEY_HERE>",
-});
-
-async function run() {
-  const result = await flexPrice.integrations.deleteIntegration({
-    id: "<id>",
-  });
-
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
-import { integrationsDeleteIntegration } from "flexprice-ts/funcs/integrationsDeleteIntegration.js";
-
-// Use `FlexPriceCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
-  serverURL: "https://api.example.com",
-  apiKeyAuth: "<YOUR_API_KEY_HERE>",
-});
-
-async function run() {
-  const res = await integrationsDeleteIntegration(flexPrice, {
-    id: "<id>",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    console.log(result);
-  } else {
-    console.log("integrationsDeleteIntegration failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteIntegrationRequest](../../sdk/models/operations/deleteintegrationrequest.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[shared.ErrorsErrorResponse](../../sdk/models/shared/errorserrorresponse.md)\>**
-
-### Errors
-
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4XX, 5XX        | \*/\*           |
-
-## getIntegration
-
-Use when you need to check or display integration config (e.g. which provider is linked). Sensitive values may be redacted.
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="getIntegration" method="get" path="/secrets/integrations/by-provider/{provider}" -->
-```typescript
-import { FlexPrice } from "flexprice-ts";
-
-const flexPrice = new FlexPrice({
-  serverURL: "https://api.example.com",
-  apiKeyAuth: "<YOUR_API_KEY_HERE>",
-});
-
-async function run() {
-  const result = await flexPrice.integrations.getIntegration({
-    provider: "<value>",
-  });
-
-  console.log(result);
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
-import { integrationsGetIntegration } from "flexprice-ts/funcs/integrationsGetIntegration.js";
-
-// Use `FlexPriceCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
-  serverURL: "https://api.example.com",
-  apiKeyAuth: "<YOUR_API_KEY_HERE>",
-});
-
-async function run() {
-  const res = await integrationsGetIntegration(flexPrice, {
-    provider: "<value>",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    console.log(result);
-  } else {
-    console.log("integrationsGetIntegration failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.GetIntegrationRequest](../../sdk/models/operations/getintegrationrequest.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<[operations.GetIntegrationResponse](../../sdk/models/operations/getintegrationresponse.md)\>**
-
-### Errors
-
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4XX, 5XX        | \*/\*           |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ErrorsErrorResponse | 400                        | application/json           |
+| errors.ErrorsErrorResponse | 500                        | application/json           |
+| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
 
 ## listLinkedIntegrations
 
@@ -256,15 +185,15 @@ Use when showing which integrations are connected (e.g. settings page). Returns 
 
 <!-- UsageSnippet language="typescript" operationID="listLinkedIntegrations" method="get" path="/secrets/integrations/linked" -->
 ```typescript
-import { FlexPrice } from "flexprice-ts";
+import { SDK } from "openapi";
 
-const flexPrice = new FlexPrice({
+const sdk = new SDK({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const result = await flexPrice.integrations.listLinkedIntegrations();
+  const result = await sdk.integrations.listLinkedIntegrations();
 
   console.log(result);
 }
@@ -277,18 +206,18 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { FlexPriceCore } from "flexprice-ts/core.js";
-import { integrationsListLinkedIntegrations } from "flexprice-ts/funcs/integrationsListLinkedIntegrations.js";
+import { SDKCore } from "openapi/core.js";
+import { integrationsListLinkedIntegrations } from "openapi/funcs/integrations-list-linked-integrations.js";
 
-// Use `FlexPriceCore` for best tree-shaking performance.
+// Use `SDKCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const flexPrice = new FlexPriceCore({
+const sdk = new SDKCore({
   serverURL: "https://api.example.com",
   apiKeyAuth: "<YOUR_API_KEY_HERE>",
 });
 
 async function run() {
-  const res = await integrationsListLinkedIntegrations(flexPrice);
+  const res = await integrationsListLinkedIntegrations(sdk);
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -310,10 +239,88 @@ run();
 
 ### Response
 
-**Promise\<[operations.ListLinkedIntegrationsResponse](../../sdk/models/operations/listlinkedintegrationsresponse.md)\>**
+**Promise\<[models.DtoLinkedIntegrationsResponse](../../models/dto-linked-integrations-response.md)\>**
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4XX, 5XX        | \*/\*           |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ErrorsErrorResponse | 500                        | application/json           |
+| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |
+
+## deleteIntegration
+
+Use when disconnecting an integration (e.g. switching provider or removing OAuth). Deletes stored credentials.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteIntegration" method="delete" path="/secrets/integrations/{id}" -->
+```typescript
+import { SDK } from "openapi";
+
+const sdk = new SDK({
+  serverURL: "https://api.example.com",
+  apiKeyAuth: "<YOUR_API_KEY_HERE>",
+});
+
+async function run() {
+  await sdk.integrations.deleteIntegration({
+    id: "<id>",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { SDKCore } from "openapi/core.js";
+import { integrationsDeleteIntegration } from "openapi/funcs/integrations-delete-integration.js";
+
+// Use `SDKCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const sdk = new SDKCore({
+  serverURL: "https://api.example.com",
+  apiKeyAuth: "<YOUR_API_KEY_HERE>",
+});
+
+async function run() {
+  const res = await integrationsDeleteIntegration(sdk, {
+    id: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("integrationsDeleteIntegration failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteIntegrationRequest](../../models/operations/delete-integration-request.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.ErrorsErrorResponse | 404                        | application/json           |
+| errors.ErrorsErrorResponse | 500                        | application/json           |
+| errors.SDKDefaultError     | 4XX, 5XX                   | \*/\*                      |

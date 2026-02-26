@@ -1,6 +1,6 @@
-# flexprice-ts Examples
+# openapi Examples
 
-This directory contains example scripts demonstrating how to use the flexprice-ts SDK.
+This directory contains example scripts demonstrating how to use the openapi SDK.
 
 ## Prerequisites
 
