@@ -1,0 +1,18 @@
+# TypesFilterCondition
+
+## Example Usage
+
+```typescript
+import { TypesFilterCondition } from "flexprice-ts/sdk/models/shared";
+
+let value: TypesFilterCondition = {};
+```
+
+## Fields
+
+| Field                                                                                                                               | Type                                                                                                                                | Required                                                                                                                            | Description                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `dataType`                                                                                                                          | [shared.TypesDataType](../../../sdk/models/shared/typesdatatype.md)                                                                 | :heavy_minus_sign:                                                                                                                  | N/A                                                                                                                                 |
+| `field`                                                                                                                             | *string*                                                                                                                            | :heavy_minus_sign:                                                                                                                  | N/A                                                                                                                                 |
+| `operator`                                                                                                                          | [shared.TypesFilterOperatorType](../../../sdk/models/shared/typesfilteroperatortype.md)                                             | :heavy_minus_sign:                                                                                                                  | N/A                                                                                                                                 |
+| `value`                                                                                                                             | [shared.GithubComFlexpriceFlexpriceInternalTypesValue](../../../sdk/models/shared/githubcomflexpriceflexpriceinternaltypesvalue.md) | :heavy_minus_sign:                                                                                                                  | N/A                                                                                                                                 |

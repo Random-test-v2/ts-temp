@@ -1,0 +1,24 @@
+# TypesPriceUnitFilter
+
+## Example Usage
+
+```typescript
+import { TypesPriceUnitFilter } from "flexprice-ts/sdk/models/shared";
+
+let value: TypesPriceUnitFilter = {};
+```
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `endTime`                                                                                   | *string*                                                                                    | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `expand`                                                                                    | *string*                                                                                    | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `filters`                                                                                   | [shared.TypesFilterCondition](../../../sdk/models/shared/typesfiltercondition.md)[]         | :heavy_minus_sign:                                                                          | filters allows complex filtering based on multiple fields                                   |
+| `limit`                                                                                     | *number*                                                                                    | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `offset`                                                                                    | *number*                                                                                    | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `order`                                                                                     | [shared.TypesPriceUnitFilterOrder](../../../sdk/models/shared/typespriceunitfilterorder.md) | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `priceUnitIds`                                                                              | *string*[]                                                                                  | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `sort`                                                                                      | [shared.TypesSortCondition](../../../sdk/models/shared/typessortcondition.md)[]             | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `startTime`                                                                                 | *string*                                                                                    | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `status`                                                                                    | [shared.TypesStatus](../../../sdk/models/shared/typesstatus.md)                             | :heavy_minus_sign:                                                                          | N/A                                                                                         |

@@ -1,19 +1,19 @@
 {
-  "name": "openapi",
+  "name": "flexprice-ts",
   "version": "0.0.28",
   "author": "Speakeasy",
   "type": "module",
   "tshy": {
     "sourceDialects": [
-      "openapi/source"
+      "flexprice-ts/source"
     ],
     "exports": {
       ".": "./src/index.ts",
       "./package.json": "./package.json",
-      "./types": "./src/types/index.ts",
-      "./models/errors": "./src/models/errors/index.ts",
-      "./models": "./src/models/index.ts",
-      "./models/operations": "./src/models/operations/index.ts",
+      "./sdk/types": "./src/sdk/types/index.ts",
+      "./sdk/models/errors": "./src/sdk/models/errors/index.ts",
+      "./sdk/models/shared": "./src/sdk/models/shared/index.ts",
+      "./sdk/models/operations": "./src/sdk/models/operations/index.ts",
       "./*.js": "./src/*.ts",
       "./*": "./src/*.ts"
     }
@@ -34,6 +34,6 @@
     "typescript-eslint": "^8.26.0"
   },
   "dependencies": {
-    "zod": "^3.25.65 || ^4.0.0"
+    "zod": "^3.25.0 || ^4.0.0"
   }
 }
